@@ -1,0 +1,143 @@
+/* Base styles */
+body, html {
+    background-color: #000000; /* Pitch black background */
+    color: #FFFFFF; /* White text */
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Scrolling banner */
+.scrolling-banner {
+    position: fixed;
+    top: 0;
+    width: 200%;
+    background: linear-gradient(90deg, #444444, #000000); /* Gradient effect */
+    color: #FFFFFF;
+    font-size: 22px;
+    padding: 40px 0;
+    overflow: hidden;
+    z-index: 9999;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.scrolling-banner span {
+    position: absolute;
+    white-space: nowrap;
+    animation: scrolling 10s linear infinite;
+}
+
+@keyframes scrolling {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Navigation Container */
+.nav-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 50px;
+    position: fixed;
+    width: 100%;
+    background-color: #111111; /* Background for navigation */
+    z-index: 9998;
+}
+
+/* GIF Logo Styles */
+.gif-logo-wrapper {
+    flex-shrink: 0;
+}
+
+.gif-logo-wrapper .gif-logo {
+    width: 80px; /* Adjusted size for the GIF logo */
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+}
+
+/* Navigation Bar */
+.tab-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Center the buttons with respect to the GIF logo */
+    gap: 20px;
+}
+
+.tab-nav button {
+    background: linear-gradient(45deg, #333333, #000000); /* Gradient for flying flag effect */
+    color: #FFFFFF;
+    padding: 10px 20px;
+    margin: 0;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px 20px 10px 20px; /* Flying flag effect */
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-nav button:hover {
+    color: #000000;
+    background: #FFFFFF;
+    transform: translateY(-3px); /* Flying effect on hover */
+}
+
+/* Content Container */
+.content {
+    margin-top: 140px; /* Offset for fixed navigation */
+    padding: 20px;
+}
+
+/* Section styles */
+.tab-content {
+    padding: 80px 20px;
+    text-align: center;
+    min-height: 100vh; /* Full viewport height for each section */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.tab-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.tab-content p {
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #D4D4D4;
+    transition: all 0.3s ease;
+}
+
+.tab-content p:hover {
+    color: #FFFFFF;
+    font-size: 22px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #000000;
+    padding: 30px;
+    text-align: center;
+    border-top: 2px solid #FFFFFF;
+}
+
+footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+footer a:hover {
+    color: #D4D4D4;
+}
+
