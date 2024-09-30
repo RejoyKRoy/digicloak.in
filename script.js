@@ -9,4 +9,3 @@ function scrollToSection(sectionId) {
         behavior: 'smooth'
     });
 }
-
