@@ -779,7 +779,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 document.getElementById("registerForm").addEventListener("submit", async function(event) {
     event.preventDefault();
     const formData = new FormData(this);
-    const response = await fetch("send_email.php", {
+    const response = await fetch("sendmail.php", {
         method: "POST",
         body: formData
     });
