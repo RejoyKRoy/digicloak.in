@@ -88,7 +88,7 @@
 						<!-- Register Now -->
 							<article id="Contact">
 								<h2 class="major">Register Now</h2>
-								<form method="post" action="#">
+								<form method="post" action="#" id="registerForm">
 									<div class="fields">
 										<div class="field">
 											<label for="name">Name</label>
@@ -774,6 +774,20 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				<script>
+document.getElementById("registerForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    const response = await fetch("send_email.php", {
+        method: "POST",
+        body: formData
+    });
+    const result = await response.text();
+    alert(result);
+});
+</script>
+			</script>
 
 	</body>
 </html>
