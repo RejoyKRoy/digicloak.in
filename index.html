@@ -88,33 +88,58 @@
 								<p>Can’t fully visualize it yet? Don’t worry! We’re crafting your cloak as we speak. Sit back, relax, and get ready for the real-time experience. Your cloak, your identity, is about to come alive in The Hanger! </p>
 							</article>
 						<!-- Register Now -->
-							<article id="Contact">
-								<h2 class="major">Register Now</h2>
-								<form method="post" action="#" id="registerForm">
-									<div class="fields">
-										<div class="field">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="mobile">Mobile</label>
-											<input type="text" name="mobile" id="mobile" />
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Register Now" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-								</ul>
-							</article>
+<article id="Contact">
+    <h2 class="major">Register Now</h2>
+    <form id="registerForm">
+        <div class="fields">
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required />
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required />
+            </div>
+            <div class="field">
+                <label for="mobile">Mobile</label>
+                <input type="tel" name="mobile" id="mobile" required />
+            </div>
+        </div>
+        <ul class="actions">
+            <li><input type="submit" value="Register Now" class="primary" /></li>
+            <li><input type="reset" value="Reset" /></li>
+        </ul>
+    </form>
+</article>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        mobile: document.getElementById("mobile").value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbwwWxc4iSOVnDKZb1h9b2fAuhWmEPVy6EJM0uB7wt634t9Qqp_42heQXAoCgU5DDlzs/exec", {  // Replace with your Google Apps Script Web App URL
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            alert("Registration Successful! Check your email.");
+            document.getElementById("registerForm").reset();
+        } else {
+            alert("Registration failed: " + data.message);
+        }
+    })
+    .catch(error => alert("Error: " + error.message));
+});
+</script>
+
 							<article id="terms">
 								<p>DIGICLOAK Terms and Conditions</p>
 
@@ -776,32 +801,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    var formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        mobile: document.getElementById("mobile").value
-    };
-
-    fetch("https://script.google.com/macros/s/AKfycbwwWxc4iSOVnDKZb1h9b2fAuhWmEPVy6EJM0uB7wt634t9Qqp_42heQXAoCgU5DDlzs/exec", {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: { "Content-Type": "application/json" }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            alert("Registration Successful! Check your email.");
-        } else {
-            alert("Registration failed: " + data.message);
-        }
-    })
-    .catch(error => alert("Error: " + error));
-});
-</script>
+			
 
 	</body>
 </html>
