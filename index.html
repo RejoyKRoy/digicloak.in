@@ -69,7 +69,7 @@
 								<li><a href="#D-SOUK">D-SOUK</a></li>
 								<li><a href="#D-CLASP">D-CLASP</a></li>
 								<li><a href="#D-HANGER">D-HANGER</a></li>
-						<li><a href="https://forms.gle/Pufbxtp61e3oevec8">Register Now</a></li> 
+						<li><a href="#contact">Register Now</a></li> 
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -120,37 +120,7 @@
 							</article>
 						<!-- Register Now -->
 <article id="Contact">
-    <h2 class="major">Register Now</h2>
-    <form id="contactForm">
-        <input type="text" id="name" name="name" placeholder="Enter Name" required>
-        <input type="email" id="email" name="email" placeholder="Enter Email" required>
-        <input type="tel" id="phone" name="phone" placeholder="Enter Phone Number" required>
-        <button type="submit">Submit</button>
-    </form>
-
-    <p id="responseMessage"></p>
-
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let phone = document.getElementById("phone").value;
-
-            fetch("https://script.google.com/macros/s/AKfycbwHmihAoLzEPMJ_Py63wo6AL0cMbwV275zmjT7w5kYYhKTlOcfs5JDG6sqc3i2zaRMm/exec", {
-                method: "POST",
-                mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, phone })
-            }).then(() => {
-                document.getElementById("responseMessage").innerText = "Form submitted! Check your email.";
-                document.getElementById("contactForm").reset();
-            }).catch(error => {
-                document.getElementById("responseMessage").innerText = "Error submitting form.";
-            });
-        });
-    </script>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfPoBgVmDDkhMzM5uJSZM6ydZx3oLtmLYonO0gtzcAQWhJc5Q/viewform?embedded=true" width="640" height="1128" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 							<article id="terms">
 								<p>DIGICLOAK Terms and Conditions</p>
