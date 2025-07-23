@@ -1,1 +1,69 @@
-<!-- Enhanced HTML contact page with formspree integration -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with DIGICLOAK. Reach out for IT consulting, digital infrastructure solutions, and multi-vendor service support.">
+  <meta name="keywords" content="Contact DIGICLOAK, IT Solutions Support, Business Consultation, Infrastructure Vendor Assistance">
+  <meta name="author" content="DIGICLOAK">
+  <title>Contact Us | DIGICLOAK</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="glass-header">
+    <div class="container nav-container">
+      <h1 class="logo">DIGICLOAK</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="container">
+      <h2 class="hero-title">Let’s Connect</h2>
+      <p class="hero-description">We're here to assist you with customized IT and digital infrastructure guidance.</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container contact-container">
+      <form class="contact-form" action="https://formspree.io/f/mnqewbpv" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="message">Your Message</label>
+        <textarea name="message" id="message" rows="6" required></textarea>
+
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <h3>Business Hours</h3>
+        <p>Mon – Sat: 9:00 AM – 7:00 PM IST</p>
+
+        <h3>Email</h3>
+        <p><a href="mailto:hello@digicloak.in">hello@digicloak.in</a></p>
+
+        <h3>Base Location</h3>
+        <p>Chennai, Tamil Nadu, India</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="glass-footer">
+    <div class="container">
+      <p>&copy; 2025 DIGICLOAK. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
