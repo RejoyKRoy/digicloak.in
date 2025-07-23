@@ -1,0 +1,1 @@
+// Smooth scroll, popup handlers, and interactivity scripts
