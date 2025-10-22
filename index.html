@@ -1,326 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digicloak - Real Work. Real Pay. Real Fast.</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React Libraries -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <!-- Babel to transpile JSX in the browser -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
-        
-        /* New Color & Animation Styles */
-        .gradient-text {
-            background: linear-gradient(90deg, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-bg {
-            background-color: #111827;
-            background-image: 
-                radial-gradient(circle at top right, rgba(129, 140, 248, 0.15), transparent 50%),
-                radial-gradient(circle at bottom left, rgba(192, 132, 252, 0.15), transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239CA3AF' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .btn-primary {
-             background: linear-gradient(90deg, #818cf8, #a855f7);
-        }
-        .btn-secondary {
-             background: linear-gradient(90deg, #c084fc, #e879f9);
-        }
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digicloak — Real Work. Real Pay. Real Fast.</title>
+  <meta name="description" content="Digicloak is a one-time job marketplace that connects people who need help with verified workers nearby. Real work, real pay, real fast."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1f2937; }
-        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
-    </style>
+  <!-- Styles -->
+  <style>
+    :root {
+      --indigo:#818cf8; --violet:#a855f7; --fuchsia:#e879f9; --slate:#111827;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#0b0f19}
+    .hero-bg{
+      background-color:#111827;
+      background-image:
+        radial-gradient(circle at 20% -10%, rgba(129,140,248,.25), transparent 50%),
+        radial-gradient(circle at 100% 10%, rgba(232,121,249,.18), transparent 45%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239CA3AF' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      position:relative; overflow:hidden;
+    }
+    /* Parallax Orbs */
+    .orb{position:absolute;filter:blur(40px);opacity:.35;pointer-events:none;mix-blend:screen}
+    .orb-1{top:-60px;left:-40px;width:280px;height:280px;background:radial-gradient(circle, rgba(129,140,248,.8),transparent 60%)}
+    .orb-2{bottom:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle, rgba(168,85,247,.75),transparent 60%)}
+
+    /* Gradients & Effects */
+    .btn-primary{background:linear-gradient(90deg,var(--indigo),var(--violet));}
+    .btn-primary:hover{box-shadow:0 10px 30px rgba(129,140,248,.35); transform:translateY(-1px) scale(1.02)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.1)}
+    .gradient-text{
+      background:linear-gradient(90deg,#818cf8,#c084fc,#e879f9);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-size:200% 100%; animation:shine 6s ease-in-out infinite;
+    }
+    @keyframes shine{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .card{
+      background:rgba(17,24,39,.7);
+      border:1px solid rgba(255,255,255,.06);
+      backdrop-filter:saturate(180%) blur(6px);
+      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .card:hover{transform:translateY(-6px); box-shadow:0 25px 50px rgba(129,140,248,.15); border-color:rgba(129,140,248,.35)}
+    .neon-border{box-shadow:0 0 0 1px rgba(167,139,250,.25),0 8px 40px rgba(124,58,237,.18) inset}
+
+    /* Reveal */
+    .reveal{opacity:0; transform:translateY(18px); transition:all .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.show{opacity:1; transform:translateY(0)}
+
+    /* Active nav link */
+    .nav-link{position:relative}
+    .nav-link.active::after{
+      content:""; position:absolute; left:0; right:0; bottom:-10px; height:2px;
+      background:linear-gradient(90deg,#818cf8,#a855f7); border-radius:999px;
+    }
+
+    /* Check animation */
+    .checkmark{
+      width:80px;height:80px;border-radius:50%;margin:0 auto;background:#16a34a22;border:2px solid #22c55e;position:relative;
+      animation:pop .5s ease-out forwards;
+    }
+    .checkmark::after{
+      content:""; position:absolute; left:23px; top:34px; width:14px; height:28px;
+      border-right:4px solid #22c55e; border-bottom:4px solid #22c55e; transform:rotate(40deg) scale(.6);
+      transform-origin:left top; animation:draw .5s .2s ease-out forwards;
+    }
+    @keyframes pop{from{transform:scale(.6);opacity:.3}to{transform:scale(1);opacity:1}}
+    @keyframes draw{to{transform:rotate(40deg) scale(1)}}
+
+    /* Tilt */
+    .tilt {transform-style:preserve-3d; will-change:transform}
+    .tilt:hover .tilt-inner{transform:translateZ(14px)}
+    .tilt-inner{transition:transform .3s ease}
+
+    /* Scrollbar */
+    ::-webkit-scrollbar{width:10px} ::-webkit-scrollbar-track{background:#0f172a}
+    ::-webkit-scrollbar-thumb{background:#334155;border-radius:6px}
+
+    /* Mobile Drawer */
+    .drawer{transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease}
+    .drawer.show{transform:translateY(0); opacity:1; pointer-events:auto}
+  </style>
 </head>
-<body class="bg-gray-900">
-    <div id="root"></div>
 
-    <script type="text/babel">
-        const { useState } = React;
-        
-        // --- Icon Components ---
-        const createIcon = (svg) => ({ size = 24, className = '', ...props }) => (
-            <svg
-                xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                className={className} {...props} dangerouslySetInnerHTML={{ __html: svg }}
-            />
-        );
+<body class="text-white selection:bg-indigo-500/30">
+  <!-- Header -->
+  <header id="header" class="sticky top-0 z-40 border-b border-white/5 bg-[#0b0f19]/70 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+      <a href="#" class="text-xl md:text-2xl font-extrabold tracking-wider">DIGICLOAK</a>
 
-        const Briefcase = createIcon('<rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />');
-        const CreditCard = createIcon('<rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" />');
-        const Clock = createIcon('<circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />');
-        const ShieldCheck = createIcon('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>');
-        const Zap = createIcon('<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>');
-        const MessageCircleOff = createIcon('<path d="m21 2-2 2m-2 2-2 2"/><path d="M3 22V8.5A5.5 5.5 0 0 1 8.5 3H12"/><path d="M21 12.5a5.5 5.5 0 0 1-11 0V12"/>');
-        const BadgePercent = createIcon('<path d="M3.85 8.62a4 4 0 0 1 4.78-4.78L20 10Z"/><path d="M8.62 3.85 10 20l1.24-1.24"/><path d="m14 8 1.24-1.24"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="16.5" cy="16.5" r=".5" fill="currentColor"/>');
-        const Rocket = createIcon('<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.3.05-3.11.65-.8.05-2.27-.05-3.11-1.5-1.26-5-2-5-2s.5 3.74 2 5Z"/><path d="m12.5 18.5-1-1 2-2c.57-.57.57-1.5 0-2.07l-2-2-1-1c-.57-.57-1.5-.57-2.07 0l-2 2-1-1c-.57-.57-1.5-.57-2.07 0l-2 2c-.57.57-.57 1.5 0 2.07l1 1-1 1c-.57.57-.57 1.5 0 2.07l2 2c.57.57 1.5.57 2.07 0l1-1 1 1c.57.57 1.5.57 2.07 0l2-2c.57-.57.57-1.5 0-2.07Z"/>');
-        const HandCoins = createIcon('<path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 4.3-4.3c.9-.9 2.1-1.4 3.4-1.4h2a2 2 0 1 0 0-4h-1"/><path d="M12 5.5V11"/><circle cx="16" cy="4" r="2"/><circle cx="20" cy="8" r="1"/>');
-        const Bot = createIcon('<path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>');
-        const Scale = createIcon('<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M2 16h3l3-8h3"/>');
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a class="nav-link hover:text-white/90 text-white/70" href="#problem">The Problem</a>
+        <a class="nav-link hover:text-white/90 text-white/70" href="#solution">Our Solution</a>
+        <a class="nav-link hover:text-white/90 text-white/70" href="#features">Features</a>
+        <a class="nav-link hover:text-white/90 text-white/70" href="#pricing">Pricing</a>
+        <a class="nav-link hover:text-white/90 text-white/70" href="#faq">FAQ</a>
+      </nav>
 
-        
-        // --- Landing Page Component ---
-        const LandingPage = () => {
-            const [status, setStatus] = useState('idle'); // idle, submitting, success
+      <div class="flex items-center gap-3">
+        <a href="#signup" class="btn-ghost hidden md:inline-block rounded-full px-4 py-2 text-sm hover:bg-white/5">Get Early Access</a>
+        <a href="#signup" class="btn-primary rounded-full px-4 py-2 text-sm font-semibold hover:scale-[1.02] transition">Join Waitlist</a>
 
-            const handleSignup = async (e) => {
-                e.preventDefault();
-                setStatus('submitting');
-                const form = e.target;
-                const data = new FormData(form);
+        <!-- Mobile -->
+        <button id="menuBtn" class="md:hidden rounded-lg p-2 hover:bg-white/10" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
 
-                // --- URL for Google Sheet submission ---
-                const googleSheetURL = 'https://script.google.com/macros/s/AKfycbxoG9_IC0J2nr9VGwEV2S9zz0TdVyjnXwWJvvHU4xvsLWBgzvayokKhDwS4zMyIDgVS7Q/exec';
+    <!-- Mobile Drawer -->
+    <div id="drawer" class="md:hidden drawer bg-[#0b0f19] border-t border-white/5">
+      <div class="px-5 py-3 grid gap-2">
+        <a class="block py-2 text-white/80" href="#problem">The Problem</a>
+        <a class="block py-2 text-white/80" href="#solution">Our Solution</a>
+        <a class="block py-2 text-white/80" href="#features">Features</a>
+        <a class="block py-2 text-white/80" href="#pricing">Pricing</a>
+        <a class="block py-2 text-white/80" href="#faq">FAQ</a>
+        <a class="block mt-2 btn-primary text-center rounded-lg py-2 font-semibold" href="#signup">Join Waitlist</a>
+      </div>
+    </div>
+  </header>
 
-                const googleSheetData = new URLSearchParams();
-                for (const pair of data.entries()) {
-                    googleSheetData.append(pair[0], pair[1]);
-                }
+  <!-- HERO -->
+  <section class="hero-bg relative overflow-hidden">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
 
-                try {
-                    const response = await fetch(googleSheetURL, {
-                        method: 'POST',
-                        body: googleSheetData,
-                    });
+    <div class="max-w-7xl mx-auto px-6 pt-24 pb-28 text-center">
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight reveal">
+        Stop Searching. <span class="gradient-text">Start Doing.</span>
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-white/70 max-w-3xl mx-auto reveal">
+        A one-time job marketplace connecting people who need help with verified workers nearby.
+        No spam. No delays. Just real work—done fast.
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-3 reveal">
+        <a href="#signup" class="btn-primary rounded-full px-6 py-3 font-semibold hover:scale-[1.03] transition">Join the Waitlist</a>
+        <a href="#features" class="btn-ghost rounded-full px-6 py-3">See how it works</a>
+      </div>
 
-                    if (response.ok) {
-                        setStatus('success');
-                    } else {
-                        throw new Error('Google Sheet submission failed');
-                    }
-                } catch (error) {
-                    console.error('Form submission failed:', error);
-                    alert('There was a problem with your submission. Please try again.');
-                    setStatus('idle');
-                }
-            };
+      <!-- Trust counters -->
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto reveal">
+        <div class="card rounded-2xl p-5 text-center">
+          <div class="text-3xl font-extrabold gradient-text counter" data-target="98">0</div>
+          <div class="text-xs text-white/60 mt-1">Cities in waitlist</div>
+        </div>
+        <div class="card rounded-2xl p-5 text-center">
+          <div class="text-3xl font-extrabold gradient-text counter" data-target="23500">0</div>
+          <div class="text-xs text-white/60 mt-1">Tasks matched (beta)</div>
+        </div>
+        <div class="card rounded-2xl p-5 text-center">
+          <div class="text-3xl font-extrabold gradient-text counter" data-target="1">0</div>
+          <div class="text-xs text-white/60 mt-1">Platform fee (%)</div>
+        </div>
+        <div class="card rounded-2xl p-5 text-center">
+          <div class="text-3xl font-extrabold gradient-text counter" data-target="4.9">0</div>
+          <div class="text-xs text-white/60 mt-1">Avg. rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            return (
-                <div className="bg-gray-900 text-white font-sans">
-                    <header className="sticky top-0 bg-gray-900/80 backdrop-blur-sm p-6 z-20 flex justify-between items-center border-b border-gray-700/50">
-                        <h1 className="text-2xl font-bold tracking-wider">DIGICLOAK</h1>
-                        <nav className="hidden md:flex gap-6 items-center">
-                            <a href="#problem" className="text-gray-300 hover:text-white transition-colors">The Problem</a>
-                            <a href="#solution" className="text-gray-300 hover:text-white transition-colors">Our Solution</a>
-                            <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
-                        </nav>
-                        <a href="#signup" className="btn-primary text-white font-bold py-2 px-5 rounded-full transition-transform hover:scale-105">Get Early Access</a>
-                    </header>
+  <!-- PROBLEM -->
+  <section id="problem" class="px-6 py-20 bg-[#0c1222]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center reveal">
+        <p class="tracking-widest text-xs font-semibold text-indigo-300">THE PROBLEM</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Finding reliable help shouldn’t be a full-time job.</h2>
+        <p class="mt-4 text-white/70 max-w-3xl mx-auto">Classifieds and random DMs cause ghosting, delays, and awkward payments. You needed it done yesterday.</p>
+      </div>
 
-                    <main>
-                        <section className="hero-bg min-h-screen flex items-center justify-center text-center p-6 -mt-20">
-                            <div className="fade-in">
-                                <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-                                    Stop Searching. <br/> <span className="gradient-text">Start Doing.</span>
-                                </h2>
-                                <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300">
-                                    The old way of finding help is broken. Digicloak is a one-time job marketplace that connects you with verified people for real tasks, right now. No spam, no delays, just results.
-                                </p>
-                                <a href="#signup" className="mt-8 inline-block btn-primary text-white font-bold py-3 px-8 rounded-full text-lg transition-transform hover:scale-105">
-                                    Join the Waitlist
-                                </a>
-                            </div>
-                        </section>
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-xl font-semibold">Spam & Ghosting</h3>
+            <p class="text-white/70 mt-2">Noise overwhelms signal. Real conversations drown in low-ball offers.</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-xl font-semibold">Unclear Timelines</h3>
+            <p class="text-white/70 mt-2">“Tomorrow” becomes next week. Urgency is ignored and work stalls.</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-xl font-semibold">Payment Headaches</h3>
+            <p class="text-white/70 mt-2">Cash is risky. Haggling is awkward. No safety if things go wrong.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                        <section id="problem" className="py-20 px-6 bg-gray-800/50">
-                            <div className="max-w-5xl mx-auto text-center">
-                                <h3 className="text-sm font-bold uppercase tracking-widest text-purple-400">THE PROBLEM</h3>
-                                <h3 className="text-4xl font-extrabold text-white mt-4">Finding quick, reliable help is a job in itself.</h3>
-                                <p className="mt-4 text-gray-400 text-lg">You need a tap fixed, a TV mounted, or a logo designed today. So you turn to classifieds and face the usual nightmare.</p>
-                                <div className="grid md:grid-cols-3 gap-8 mt-12 text-left">
-                                    <div className="bg-gray-900/70 p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10">
-                                        <MessageCircleOff size={32} className="text-red-400" />
-                                        <h4 className="font-bold text-xl mt-4 text-white">Endless Spam & Ghosting</h4>
-                                        <p className="mt-2 text-gray-300">Your inbox fills with low-ball offers, and serious inquiries get lost in the noise. Most conversations lead nowhere.</p>
-                                    </div>
-                                    <div className="bg-gray-900/70 p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10">
-                                        <Clock size={32} className="text-yellow-400" />
-                                        <h4 className="font-bold text-xl mt-4 text-white">Unreliable Timelines</h4>
-                                        <p className="mt-2 text-gray-300">"I'll be there tomorrow" becomes next week, leaving you frustrated and your task undone. Urgency is ignored.</p>
-                                    </div>
-                                    <div className="bg-gray-900/70 p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10">
-                                        <CreditCard size={32} className="text-green-400" />
-                                        <h4 className="font-bold text-xl mt-4 text-white">Awkward Payment Issues</h4>
-                                        <p className="mt-2 text-gray-300">Haggling over prices is stressful. Cash payments are insecure. There's no guarantee of getting what you paid for.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        
-                         <section className="py-20 px-6 bg-gray-900">
-                            <div className="max-w-6xl mx-auto">
-                                <div className="text-center">
-                                    <h3 className="text-sm font-bold uppercase tracking-widest text-purple-400">WHY WE'RE DIFFERENT</h3>
-                                    <h3 className="text-4xl font-extrabold text-white mt-4">We Cut Through the Chaos.</h3>
-                                </div>
-                                <div className="grid md:grid-cols-3 gap-8 mt-12 text-center">
-                                    <div className="bg-gray-800/50 p-6 rounded-xl">
-                                        <Bot size={32} className="mx-auto text-red-400" />
-                                        <h4 className="font-bold text-xl mt-4 text-white">Smarter than OIX</h4>
-                                        <p className="mt-2 text-gray-300">Forget the endless scroll and praying for a reply. Our platform is a focused marketplace, not a digital garage sale. We connect you only with users who mean business.</p>
-                                    </div>
-                                    <div className="bg-gray-800/50 p-6 rounded-xl">
-                                        <Scale size={32} className="mx-auto text-yellow-400" />
-                                        <h4 className="font-bold text-xl mt-4 text-white">More Flexible than Urban Company</h4>
-                                        <p className="mt-2 text-gray-300">Why pay fixed, premium prices for a simple task? Here, you set the budget and negotiate directly. You pay for the work, not the corporate overhead.</p>
-                                    </div>
-                                    <div className="bg-gray-800/50 p-6 rounded-xl">
-                                        <HandCoins size={32} className="mx-auto text-green-400" />
-                                        <h4 className="font-bold text-xl mt-4 text-white">Fairer than U6er</h4>
-                                        <p className="mt-2 text-gray-300">On-demand shouldn't mean a massive commission cut. Our tiny 1% fee ensures workers get paid what they deserve, and posters get a fair price.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+  <!-- WHY DIFFERENT -->
+  <section class="px-6 py-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center reveal">
+        <p class="tracking-widest text-xs font-semibold text-indigo-300">WHY WE'RE DIFFERENT</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">We cut through the chaos.</h2>
+      </div>
 
-                        <section className="py-20 px-6 hero-bg" id="solution">
-                             <div className="max-w-6xl mx-auto">
-                                <div className="text-center mb-12">
-                                    <h3 className="text-sm font-bold uppercase tracking-widest text-purple-400">THE ROADMAP</h3>
-                                    <h3 className="text-4xl font-extrabold text-white mt-4">From Task to Done, Simplified.</h3>
-                                    <p className="mt-4 text-gray-300 text-lg max-w-3xl mx-auto">We've designed a straightforward process for both sides of the marketplace, ensuring clarity and speed at every step.</p>
-                                </div>
-                                <div className="grid md:grid-cols-2 gap-12">
-                                    <div>
-                                        <h4 className="text-2xl font-bold text-white mb-6">If You Need Help (Poster)</h4>
-                                        <div className="space-y-6 border-l-2 border-purple-500/50 ml-4">
-                                            <div className="pl-8 relative"><div className="absolute -left-4 top-1 h-7 w-7 bg-purple-500 rounded-full flex items-center justify-center font-bold">1</div><h5 className="font-bold text-xl text-white">Post for Free</h5><p className="text-gray-300">Describe your task and set your budget in under 60 seconds. Your job is instantly visible to nearby workers.</p></div>
-                                            <div className="pl-8 relative"><div className="absolute -left-4 top-1 h-7 w-7 bg-purple-500 rounded-full flex items-center justify-center font-bold">2</div><h5 className="font-bold text-xl text-white">Negotiate & Agree</h5><p className="text-gray-300">Receive offers and negotiate the price directly in the app. Our timed system ensures you only deal with serious workers.</p></div>
-                                            <div className="pl-8 relative"><div className="absolute -left-4 top-1 h-7 w-7 bg-purple-500 rounded-full flex items-center justify-center font-bold">3</div><h5 className="font-bold text-xl text-white">Pay Securely</h5><p className="text-gray-300">Once you agree on a price, pay into our secure escrow. The money is held safely until the work is done.</p></div>
-                                            <div className="pl-8 relative"><div className="absolute -left-4 top-1 h-7 w-7 bg-purple-500 rounded-full flex items-center justify-center font-bold">4</div><h5 className="font-bold text-xl text-white">Verify & Rate</h5><p className="text-gray-300">Use a simple OTP to confirm the job is complete. Your payment is released, and you can rate the worker to help the community.</p></div>
-                                        </div>
-                                    </div>
-                                     <div>
-                                        <h4 className="text-2xl font-bold text-white mb-6">If You're Ready to Work (Worker)</h4>
-                                        <div className="space-y-6 border-l-2 border-indigo-500/50 ml-4">
-                                            <div className="pl-8 relative"><div className="absolute -left-4 top-1 h-7 w-7 bg-indigo-500 rounded-full flex items-center justify-center font-bold">1</div><h5 className="font-bold text-xl text-white">Find & Offer</h5><p className="text-gray-300">Browse a live map of jobs near you. See a task you like? Accept the budget or make your own counter-offer.</p></div>
-                                            <div className="pl-8 relative"><div className="absolute -left-4 top-1 h-7 w-7 bg-indigo-500 rounded-full flex items-center justify-center font-bold">2</div><h5 className="font-bold text-xl text-white">Agree on Price</h5><p className="text-gray-300">Once the poster accepts your offer, the job is yours. You'll get a notification the moment they secure the payment.</p></div>
-                                            <div className="pl-8 relative"><div className="absolute -left-4 top-1 h-7 w-7 bg-indigo-500 rounded-full flex items-center justify-center font-bold">3</div><h5 className="font-bold text-xl text-white">Get the Job Done</h5><p className="text-gray-300">Navigate to the location, verify your arrival with an OTP, complete the work, and get a final OTP from the poster.</p></div>
-                                            <div className="pl-8 relative"><div className="absolute -left-4 top-1 h-7 w-7 bg-indigo-500 rounded-full flex items-center justify-center font-bold">4</div><h5 className="font-bold text-xl text-white">Get Paid Instantly</h5><p className="text-gray-300">The moment the job is marked complete, the agreed amount is transferred to your Digicloak wallet. Withdraw anytime.</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <div class="card rounded-2xl p-6 reveal">
+          <h3 class="text-xl font-semibold">Focused Marketplace</h3>
+          <p class="text-white/70 mt-2">Less “digital garage sale,” more intent. Only serious posters & workers.</p>
+        </div>
+        <div class="card rounded-2xl p-6 reveal">
+          <h3 class="text-xl font-semibold">Flexible Pricing</h3>
+          <p class="text-white/70 mt-2">Set a budget or counter-offer. No inflated aggregator markups.</p>
+        </div>
+        <div class="card rounded-2xl p-6 reveal">
+          <h3 class="text-xl font-semibold">Fair 1% Fee</h3>
+          <p class="text-white/70 mt-2">On success only. Workers earn more, posters pay less.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                        <section className="py-20 px-6 bg-gray-800/50">
-                             <div className="max-w-4xl mx-auto">
-                                <div className="text-center">
-                                     <h3 className="text-sm font-bold uppercase tracking-widest text-purple-400">MARKET INSIGHTS</h3>
-                                    <h3 className="text-4xl font-extrabold text-white mt-4">The Demand for On-Demand is Real.</h3>
-                                    <p className="mt-4 text-gray-300 text-lg max-w-3xl mx-auto">We're not just building an app; we're solving a fundamental urban problem. The need for quick, accessible help is growing every day.</p>
-                                </div>
-                                <div className="mt-12 space-y-8">
-                                    <div className="bg-gray-900/70 p-6 rounded-xl flex items-start gap-4 transition-transform hover:scale-105">
-                                        <div className="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                                            <Zap size={24} className="text-purple-400" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-xl text-white">The Rise of the "Do It For Me" Economy</h4>
-                                            <p className="text-gray-300 mt-1">Time is the new currency. A NITI Aayog report estimates that nearly <span className="gradient-text font-bold">23.5 million workers</span> will be part of the gig economy by 2029-30. This isn't just about big projects; it's about a cultural shift where busy professionals prefer to delegate small, everyday tasks.</p>
-                                        </div>
-                                    </div>
-                                    <div className="bg-gray-900/70 p-6 rounded-xl flex items-start gap-4 transition-transform hover:scale-105">
-                                        <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
-                                            <ShieldCheck size={24} className="text-green-400" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-xl text-white">The Trust Deficit is Costly</h4>
-                                            <p className="text-gray-300 mt-1">Over <span className="gradient-text font-bold">60% of consumers</span> cite lack of trust and fear of scams as the primary reason they avoid unverified classifieds platforms. This hesitation creates a massive, untapped market for a platform built on security and accountability.</p>
-                                        </div>
-                                    </div>
-                                     <div className="bg-gray-900/70 p-6 rounded-xl flex items-start gap-4 transition-transform hover:scale-105">
-                                        <div className="flex-shrink-0 w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center">
-                                            <HandCoins size={24} className="text-yellow-400" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-xl text-white">Direct Connections Mean Real Savings</h4>
-                                            <p className="text-gray-300 mt-1">Large service aggregators often add <span className="gradient-text font-bold">30-50% in commissions</span> and hidden fees. By facilitating direct negotiation and taking only a 1% fee, Digicloak empowers users to save significantly, putting more money in the pockets of both posters and workers.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        <section className="py-20 px-6 hero-bg" id="pricing">
-                           <div className="max-w-6xl mx-auto text-center">
-                                <h3 className="text-4xl font-extrabold text-white">Simple, Transparent Pricing</h3>
-                                <p className="mt-4 text-gray-400 text-lg">No hidden fees. Just honest value.</p>
-                                <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
-                                    <div className="bg-gray-900/70 p-8 rounded-2xl text-left"> <BadgePercent size={32} className="text-indigo-400" /> <h4 className="text-2xl font-bold mt-4 text-white">Pay-As-You-Go</h4> <p className="text-gray-300 mt-2">Perfect for one-off tasks. Posting is always free.</p> <p className="text-5xl font-extrabold mt-6 text-white">1<span className="text-3xl">%</span></p> <p className="text-gray-400">commission on successful jobs</p> </div>
-                                    <div className="bg-gray-900/70 p-8 rounded-2xl text-left border-2 border-purple-500"> <Briefcase size={32} className="text-purple-400" /> <h4 className="text-2xl font-bold mt-4 text-white">Pro Subscription</h4> <p className="text-gray-300 mt-2">Ideal for frequent users and small businesses.</p> <p className="text-5xl font-extrabold mt-6 text-white">₹999<span className="text-xl">/mo</span></p> <p className="text-gray-400">Includes 5 job posts per month with 0% commission.</p> </div>
-                                    <div className="bg-gray-900/70 p-8 rounded-2xl text-left"> <Rocket size={32} className="text-green-400" /> <h4 className="text-2xl font-bold mt-4 text-white">Post Add-ons</h4> <p className="text-gray-300 mt-2">Boost your post's visibility to get faster responses.</p> <p className="text-5xl font-extrabold mt-6 text-white">₹99<span className="text-xl">/each</span></p> <p className="text-gray-400">Mark as "Urgent" or "Featured" for 24 hours.</p> </div>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        <section className="py-20 px-6 hero-bg" id="signup">
-                            <div className="max-w-2xl mx-auto">
-                                {status !== 'success' ? (
-                                    <div className="bg-gray-800/80 backdrop-blur-sm border border-purple-500/20 p-8 rounded-2xl shadow-2xl">
-                                        <h3 className="text-3xl font-extrabold text-center text-white">Be the First to Know</h3>
-                                        <p className="text-center text-gray-300 mt-2">Sign up for exclusive early access and launch notifications.</p>
-                                        <form method="POST" onSubmit={handleSignup} className="mt-8 space-y-4">
-                                            <input name="name" type="text" placeholder="Full Name" required className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"/>
-                                            <input name="email" type="email" placeholder="Email Address" required className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"/>
-                                            <input name="phone" type="tel" placeholder="Phone Number" required className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"/>
-                                            <button type="submit" className="w-full btn-primary text-white font-bold py-3 rounded-lg text-lg transition-transform hover:scale-105 disabled:opacity-50" disabled={status === 'submitting'}>
-                                                {status === 'submitting' ? 'Submitting...' : (status === 'error' ? 'Try Again' : 'Notify Me')}
-                                            </button>
-                                            {status === 'error' && <p className="text-sm text-red-400 text-center">Sorry, there was an issue. Please check your details and try again.</p>}
-                                        </form>
-                                    </div>
-                                ) : (
-                                    <div className="text-center bg-gray-800/80 backdrop-blur-sm border border-purple-500/20 p-12 rounded-2xl shadow-2xl fade-in">
-                                        <ShieldCheck size={48} className="text-green-400 mx-auto"/>
-                                        <h3 className="text-3xl font-extrabold mt-4 text-white">You're on the list!</h3>
-                                        <p className="text-gray-300 mt-2">Thank you for signing up. We'll notify you the moment Digicloak launches.</p>
-                                    </div>
-                                )}
-                            </div>
-                        </section>
-                    </main>
-                    
-                    <footer className="text-center p-8 bg-gray-900 text-gray-500">
-                        <p>&copy; {new Date().getFullYear()} Digicloak. All rights reserved.</p>
-                    </footer>
-                </div>
-            );
-        };
-        
-        // --- Root Application Component ---
-        function App() {
-            return <LandingPage />;
+  <!-- SOLUTION / ROADMAP -->
+  <section id="solution" class="px-6 py-20 hero-bg">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center reveal">
+        <p class="tracking-widest text-xs font-semibold text-indigo-300">THE ROADMAP</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">From task to done — fast.</h2>
+        <p class="text-white/70 max-w-3xl mx-auto mt-4">A clear, OTP-verified flow for both sides of the marketplace.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+        <!-- Posters -->
+        <div class="card rounded-2xl p-6 reveal">
+          <h3 class="text-2xl font-bold">If you need help (Poster)</h3>
+          <ol class="mt-5 space-y-5 border-l border-white/10 pl-6">
+            <li><span class="font-semibold">Post in 60s</span> — describe the task & set a budget.</li>
+            <li><span class="font-semibold">Negotiate fast</span> — timed offers from nearby workers.</li>
+            <li><span class="font-semibold">Secure escrow</span> — pay safely; funds are held.</li>
+            <li><span class="font-semibold">Verify & rate</span> — use OTP on completion to release payment.</li>
+          </ol>
+        </div>
+        <!-- Workers -->
+        <div class="card rounded-2xl p-6 reveal">
+          <h3 class="text-2xl font-bold">If you’re ready to work (Worker)</h3>
+          <ol class="mt-5 space-y-5 border-l border-white/10 pl-6">
+            <li><span class="font-semibold">Find nearby</span> — live map of tasks around you.</li>
+            <li><span class="font-semibold">Offer & win</span> — accept budget or send counter-offer.</li>
+            <li><span class="font-semibold">Do the job</span> — verify arrival with OTP; complete the task.</li>
+            <li><span class="font-semibold">Get paid instantly</span> — money hits wallet post-OTP.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="px-6 py-20 bg-[#0c1222]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center reveal">
+        <p class="tracking-widest text-xs font-semibold text-indigo-300">FEATURES</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Built for speed, safety & trust.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-lg font-semibold">Timed Offers</h3>
+            <p class="text-white/70 mt-2">Auto-expire low intent. Keep serious deals moving.</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-lg font-semibold">Escrow & OTP</h3>
+            <p class="text-white/70 mt-2">Payment safety for posters; payout certainty for workers.</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-lg font-semibold">Verified Profiles</h3>
+            <p class="text-white/70 mt-2">ID, reviews, repeat history, and on-time completion scores.</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-lg font-semibold">In-app Chat</h3>
+            <p class="text-white/70 mt-2">Keep everything in one place; auto-quote summaries.</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-lg font-semibold">Live Map</h3>
+            <p class="text-white/70 mt-2">Find jobs or workers in real-time with smart radius.</p>
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal tilt">
+          <div class="tilt-inner">
+            <h3 class="text-lg font-semibold">Low 1% Fee</h3>
+            <p class="text-white/70 mt-2">Fair for everyone. On success only.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP PREVIEW / SOCIAL PROOF -->
+  <section class="px-6 py-20">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div class="reveal">
+        <p class="tracking-widest text-xs font-semibold text-indigo-300">APP PREVIEW</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Clean, modern & fast.</h2>
+        <p class="text-white/70 mt-4">A minimal interface that gets out of the way. Post a task, negotiate, verify, done.</p>
+        <ul class="mt-6 space-y-3 text-white/80">
+          <li>• 60-second posting with smart templates</li>
+          <li>• One-tap counter-offers</li>
+          <li>• OTP arrival & completion checks</li>
+          <li>• Instant wallet payouts</li>
+        </ul>
+        <div class="mt-8 flex gap-3">
+          <a href="#signup" class="btn-primary rounded-full px-6 py-3 font-semibold hover:scale-[1.03] transition">Get Early Access</a>
+          <a href="#pricing" class="btn-ghost rounded-full px-6 py-3">View Pricing</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <!-- Placeholder device mock -->
+        <div class="relative rounded-[28px] p-2 neon-border" style="background:linear-gradient(180deg,#0b0f19,#0f1222)">
+          <div class="rounded-[24px] overflow-hidden border border-white/10">
+            <div class="h-10 bg-black/60"></div>
+            <div class="h-[420px] bg-[radial-gradient(circle_at_20%_0%,rgba(129,140,248,.25),transparent_60%),radial-gradient(circle_at_80%_100%,rgba(232,121,249,.18),transparent_50%)] flex items-center justify-center">
+              <div class="text-center">
+                <div class="text-5xl">📱</div>
+                <p class="mt-3 text-white/70">App UI preview placeholder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-white/50 mt-3">Add real screenshots later — slot fits any 9:16 image.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET INSIGHTS -->
+  <section class="px-6 py-20 hero-bg">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="tracking-widest text-xs font-semibold text-indigo-300">MARKET INSIGHTS</p>
+      <h2 class="text-3xl md:text-5xl font-extrabold mt-3 reveal">On-demand is exploding.</h2>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="card rounded-2xl p-6 text-left reveal">
+          <h3 class="font-semibold text-lg">“Do-it-for-me” economy</h3>
+          <p class="text-white/70 mt-2">Busy professionals outsource everyday tasks. Demand keeps climbing.</p>
+        </div>
+        <div class="card rounded-2xl p-6 text-left reveal">
+          <h3 class="font-semibold text-lg">Trust deficit</h3>
+          <p class="text-white/70 mt-2">Verification + escrow unlock the cautious majority avoiding classifieds.</p>
+        </div>
+        <div class="card rounded-2xl p-6 text-left reveal">
+          <h3 class="font-semibold text-lg">Direct savings</h3>
+          <p class="text-white/70 mt-2">Ditch 30–50% middle-fees. 1% success fee makes both sides win.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="px-6 py-20">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl md:text-5xl font-extrabold reveal">Simple, transparent pricing</h2>
+      <p class="text-white/70 mt-3 reveal">No hidden fees. Just honest value.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <div class="card rounded-2xl p-8 text-left reveal">
+          <h3 class="text-xl font-bold">Pay-As-You-Go</h3>
+          <p class="text-white/70 mt-2">Great for one-off tasks. Posting is free.</p>
+          <p class="text-5xl font-extrabold mt-6">1<span class="text-2xl">%</span></p>
+          <p class="text-white/60">Commission on successful jobs</p>
+        </div>
+
+        <div class="card rounded-2xl p-8 text-left border-2 border-violet-500/50 reveal">
+          <h3 class="text-xl font-bold">Pro Subscription</h3>
+          <p class="text-white/70 mt-2">For frequent users & small teams.</p>
+          <p class="text-5xl font-extrabold mt-6">₹999<span class="text-xl">/mo</span></p>
+          <p class="text-white/60">Includes 5 job posts per month with 0% commission</p>
+        </div>
+
+        <div class="card rounded-2xl p-8 text-left reveal">
+          <h3 class="text-xl font-bold">Post Add-ons</h3>
+          <p class="text-white/70 mt-2">Boost visibility to get faster responses.</p>
+          <p class="text-5xl font-extrabold mt-6">₹99<span class="text-xl">/each</span></p>
+          <p class="text-white/60">Mark as “Urgent” or “Featured” (24 hrs)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="px-6 py-20 bg-[#0c1222]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center reveal">
+        <p class="tracking-widest text-xs font-semibold text-indigo-300">WHAT USERS SAY</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Loved by posters & workers</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <div class="card rounded-2xl p-6 reveal">
+          <p class="text-white/80">“Found a plumber in 15 minutes. OTP + escrow made it worry-free.”</p>
+          <div class="mt-4 text-sm text-white/60">— Ananya, Bengaluru</div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal">
+          <p class="text-white/80">“I do 3–4 quick jobs a day now. Payout is instant after completion.”</p>
+          <div class="mt-4 text-sm text-white/60">— Rakesh, Pune</div>
+        </div>
+        <div class="card rounded-2xl p-6 reveal">
+          <p class="text-white/80">“No calls back and forth. Negotiation is clean and fast.”</p>
+          <div class="mt-4 text-sm text-white/60">— Isha, Delhi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="px-6 py-20">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center reveal">
+        <p class="tracking-widest text-xs font-semibold text-indigo-300">FAQ</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Answers, upfront.</h2>
+      </div>
+
+      <div class="mt-10 space-y-4">
+        <details class="card rounded-xl p-5 reveal">
+          <summary class="cursor-pointer font-semibold">How does payment work?</summary>
+          <p class="text-white/70 mt-2">You pay into secure escrow when an offer is accepted. Funds release after OTP-verified completion.</p>
+        </details>
+        <details class="card rounded-xl p-5 reveal">
+          <summary class="cursor-pointer font-semibold">What fees does Digicloak charge?</summary>
+          <p class="text-white/70 mt-2">Only 1% on successful jobs. Pro subscribers pay 0% for 5 posts/month.</p>
+        </details>
+        <details class="card rounded-xl p-5 reveal">
+          <summary class="cursor-pointer font-semibold">How are workers verified?</summary>
+          <p class="text-white/70 mt-2">ID checks, reviews, repeat history, completion rates, and on-time delivery signals.</p>
+        </details>
+        <details class="card rounded-xl p-5 reveal">
+          <summary class="cursor-pointer font-semibold">Is there support?</summary>
+          <p class="text-white/70 mt-2">Yes. In-app chat, dispute flow, and priority support for Pro.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP -->
+  <section id="signup" class="px-6 py-20 hero-bg">
+    <div class="max-w-2xl mx-auto" id="signup-container">
+      <div class="card rounded-2xl p-8 reveal">
+        <h2 class="text-3xl font-extrabold text-center">Be the first to know</h2>
+        <p class="text-center text-white/70 mt-2">Sign up for early access and launch updates.</p>
+
+        <form id="signup-form" class="mt-6 space-y-4">
+          <input name="name" type="text" placeholder="Full Name" required class="w-full p-3 bg-white/5 border border-white/10 rounded-lg placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+          <input name="email" type="email" placeholder="Email Address" required class="w-full p-3 bg-white/5 border border-white/10 rounded-lg placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+          <input name="phone" type="tel" placeholder="Phone Number" required class="w-full p-3 bg-white/5 border border-white/10 rounded-lg placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+          <button id="submit-btn" type="submit" class="w-full btn-primary rounded-lg py-3 font-semibold hover:scale-[1.02] transition">Notify Me</button>
+          <p id="form-error" class="hidden text-sm text-rose-400 text-center">Something went wrong. Please try again.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="px-6 py-16 bg-[#0c1222]">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-5xl font-extrabold reveal">Real work. Real pay. Real fast.</h2>
+      <p class="text-white/70 mt-3 reveal">Post your first task or grab one nearby — and let’s get it done.</p>
+      <div class="mt-6 reveal">
+        <a href="#signup" class="btn-primary rounded-full px-6 py-3 font-semibold hover:scale-[1.03] transition">Join the Waitlist</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center p-8 text-white/60 border-t border-white/5">
+    <p>&copy; <span id="year"></span> Digicloak. All rights reserved.</p>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="toTop" class="fixed bottom-6 right-6 hidden rounded-full p-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10" aria-label="Back to top">
+    ↑
+  </button>
+
+  <!-- Scripts -->
+  <script>
+    // -------- Utilities
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => [...document.querySelectorAll(sel)];
+
+    // Year
+    $('#year').textContent = new Date().getFullYear();
+
+    // Mobile drawer
+    const menuBtn = $('#menuBtn'); const drawer = $('#drawer');
+    menuBtn?.addEventListener('click', () => drawer.classList.toggle('show'));
+    drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click',()=>drawer.classList.remove('show')));
+
+    // Reveal on scroll
+    const revealEls = $$('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    revealEls.forEach(el => io.observe(el));
+
+    // Active nav highlighting
+    const sections = ['#problem','#solution','#features','#pricing','#faq'].map(id => document.querySelector(id));
+    const links = $$('.nav-link');
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = '#'+entry.target.id;
+        const link = [...links].find(a=>a.getAttribute('href')===id);
+        if(entry.isIntersecting){
+          links.forEach(l=>l.classList.remove('active'));
+          link?.classList.add('active');
         }
+      });
+    },{rootMargin:'-45% 0px -45% 0px', threshold:0});
+    sections.forEach(s=>spy.observe(s));
 
-        const container = document.getElementById('root');
-        const root = ReactDOM.createRoot(container);
-        root.render(<App />);
-    </script>
+    // Back to top
+    const toTop = $('#toTop');
+    window.addEventListener('scroll',()=>{
+      const y = window.scrollY;
+      toTop.classList.toggle('hidden', y < 600);
+    });
+    toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+    // Tilt effect
+    function mountTilt(card){
+      let rAF; const strength = 10;
+      function move(e){
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+        const rx = ((y - rect.height/2) / rect.height) * -strength;
+        const ry = ((x - rect.width/2) / rect.width) * strength;
+        cancelAnimationFrame(rAF);
+        rAF = requestAnimationFrame(()=> card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`);
+      }
+      function reset(){ card.style.transform = 'rotateX(0) rotateY(0)'; }
+      card.addEventListener('mousemove',move);
+      card.addEventListener('mouseleave',()=>{ cancelAnimationFrame(rAF); reset(); });
+    }
+    $$('.tilt').forEach(mountTilt);
+
+    // Counters
+    const counters = $$('.counter');
+    const counterIO = new IntersectionObserver((entries)=>{
+      entries.forEach(({isIntersecting,target})=>{
+        if(!isIntersecting) return;
+        const targetVal = parseFloat(target.dataset.target);
+        const isInt = Number.isInteger(targetVal);
+        const dur = 1200; const start = performance.now();
+        function tick(now){
+          const p = Math.min((now - start)/dur,1);
+          const num = targetVal * (0.2 + 0.8 * (p*p*(3-2*p))); // ease
+          target.textContent = isInt ? Math.floor(num).toLocaleString() : num.toFixed(1);
+          if(p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterIO.unobserve(target);
+      });
+    },{threshold:.3});
+    counters.forEach(c=>counterIO.observe(c));
+
+    // Parallax orbs
+    const orbs = $$('.orb');
+    document.addEventListener('mousemove', (e)=>{
+      const x = (e.clientX / window.innerWidth - .5) * 10;
+      const y = (e.clientY / window.innerHeight - .5) * 10;
+      orbs.forEach((o,i)=> o.style.transform = `translate(${x*(i?1.6:1)}px, ${y*(i?1.2:1)}px)`);
+    });
+
+    // ---- FORM: Google Sheet submission
+    const form = $('#signup-form');
+    const container = $('#signup-container');
+    const button = $('#submit-btn');
+    const errorEl = $('#form-error');
+    const googleSheetURL = "https://script.google.com/macros/s/AKfycbxoG9_IC0J2nr9VGwEV2S9zz0TdVyjnXwWJvvHU4xvsLWBgzvayokKhDwS4zMyIDgVS7Q/exec";
+
+    form?.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      button.disabled = true; errorEl.classList.add('hidden'); button.textContent = 'Submitting…';
+
+      const formData = new FormData(form);
+      const payload = new URLSearchParams();
+      for(const [k,v] of formData.entries()) payload.append(k,v);
+
+      try{
+        const res = await fetch(googleSheetURL,{method:'POST', body:payload});
+        if(!res.ok) throw new Error('Bad response');
+
+        container.innerHTML = `
+          <div class="card rounded-2xl p-10 text-center reveal show">
+            <div class="checkmark"></div>
+            <h3 class="text-3xl font-extrabold mt-6">You're on the list!</h3>
+            <p class="text-white/70 mt-2">Thanks for signing up. We’ll notify you the moment Digicloak launches.</p>
+            <a href="#features" class="inline-block mt-6 btn-primary rounded-full px-6 py-3 font-semibold">Explore Features</a>
+          </div>
+        `;
+      }catch(err){
+        errorEl.classList.remove('hidden');
+        button.disabled = false; button.textContent = 'Notify Me';
+      }
+    });
+
+    // Close drawer on resize up
+    window.addEventListener('resize',()=>{ if(window.innerWidth>=768) drawer?.classList.remove('show'); });
+  </script>
 </body>
 </html>
-
