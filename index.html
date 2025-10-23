@@ -779,8 +779,14 @@
     // Close drawer on resize up
     window.addEventListener('resize',()=>{ if(window.innerWidth>=768) drawer?.classList.remove('show'); });
   </script>
+        <script>
+  const menuBtn = document.getElementById('menuBtn');
+  const drawer = document.getElementById('drawer');
+  menuBtn.addEventListener('click', () => drawer.classList.toggle('show'));
+</script>
 </body>
 </html>
+
 
 
 
