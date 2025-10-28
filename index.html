@@ -135,6 +135,10 @@
       #signup-form{padding:0.5rem;}
       footer{padding:2rem 1rem;font-size:0.85rem;}
     }
+    @media (max-width:768px){
+      #drawer{height:0;}
+      .mobile-menu-bg{background: #0b0f19;}
+    }
   </style>
 </head>
 <!-- BODY CONTENT UNCHANGED -->
@@ -165,7 +169,7 @@
 
     <!-- Mobile Drawer -->
     <div id="drawer" class="md:hidden drawer bg-[#0b0f19] border-t border-white/5">
-      <div class="px-5 py-3 grid gap-2">
+      <div class="px-5 py-3 grid gap-2 mobile-menu-bg">
         <a class="block py-2 text-white/80" href="#problem">The Problem</a>
         <a class="block py-2 text-white/80" href="#solution">Our Solution</a>
         <a class="block py-2 text-white/80" href="#features">Features</a>
@@ -785,6 +789,7 @@
 </script>
 </body>
 </html>
+
 
 
 
