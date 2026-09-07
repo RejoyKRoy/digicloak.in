@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /*?*utm_
+Disallow: /*?*fbclid
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://digicloak.in/sitemap.xml

@@ -1,801 +1,751 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+  ============================================================================
+  CERT-In wording — READ BEFORE PUBLISHING
+  ----------------------------------------------------------------------------
+  Every reference on this page is written as audits "delivered with a CERT-In
+  empanelled auditing organisation". That is accurate whether or not DigiCloak
+  itself holds empanelment.
+
+  Do NOT change it to "DigiCloak is CERT-In empanelled" unless DigiCloak
+  appears on the current CERT-In list of empanelled auditing organisations.
+  CERT-In restricts what an empanelled firm may claim: the only permitted
+  sentence is exactly —
+      "This organization is empanelled by CERT-In for providing Information
+       Security Auditing Services."
+  Misuse of CERT-In branding can lead to penalties or de-empanelment.
+
+  If DigiCloak IS empanelled, update: the <title>, the meta description, the
+  DC / AUD department card, and the CERT-In FAQ answer + its JSON-LD twin.
+  ============================================================================
+-->
+<html lang="en-IN">
 <head>
-  <!-- ✅ SEO META TAGS -->
-  <meta name="title" content="DigiCloak – One-Time Job Marketplace | Real Work. Real Pay. Real Fast.">
-  <meta name="description" content="Find verified local workers or gigs instantly. DigiCloak connects posters and workers for one-time jobs with 0% worker commission and instant payments.">
-  <meta name="keywords" content="gig economy, job marketplace, one-time jobs, local work, earn money, task app, part-time, side hustle, freelance work, on-demand services">
-  <link rel="canonical" href="https://digicloak.com/">
-
-  <!-- ✅ OPEN GRAPH / TWITTER TAGS -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://digicloak.com/">
-  <meta property="og:title" content="DigiCloak – Real Work. Real Pay. Real Fast.">
-  <meta property="og:description" content="The on-demand job marketplace for real work and real people. Post, connect, and get paid fast.">
-  <meta property="og:image" content="https://digicloak.com/og-image.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DigiCloak – Real Work. Real Pay. Real Fast.">
-  <meta name="twitter:description" content="Join the modern way to work — verified, secure, and commission-free for workers.">
-  <meta name="twitter:image" content="https://digicloak.com/og-image.jpg">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "DigiCloak",
-    "url": "https://digicloak.com",
-    "logo": "https://digicloak.com/logo.png",
-    "sameAs": [
-      "https://twitter.com/digicloak",
-      "https://linkedin.com/company/digicloak"
-    ],
-    "description": "DigiCloak is a one-time job marketplace connecting people who need help with verified workers nearby."
-  }
-  </script>
-
-  <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <title>Digicloak — Real Work. Real Pay. Real Fast.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-
-  <script src="https://cdn.tailwindcss.com">
-    <body class="overflow-x-hidden text-white selection:bg-indigo-500/30">
-  </script>
-
-  <style>
-    :root {
-      --indigo:#818cf8; --violet:#a855f7; --fuchsia:#e879f9; --slate:#111827;
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;background:#0b0f19}
-    .hero-bg{
-      background-color:#111827;
-      background-image:
-        radial-gradient(circle at 20% -10%, rgba(129,140,248,.25), transparent 50%),
-        radial-gradient(circle at 100% 10%, rgba(232,121,249,.18), transparent 45%),
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239CA3AF' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      position:relative; overflow:hidden;
-    }
-    .orb{position:absolute;filter:blur(40px);opacity:.35;pointer-events:none;mix-blend:screen}
-    .orb-1{top:-60px;left:-40px;width:280px;height:280px;background:radial-gradient(circle, rgba(129,140,248,.8),transparent 60%)}
-    .orb-2{bottom:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle, rgba(168,85,247,.75),transparent 60%)}
-
-    .btn-primary{background:linear-gradient(90deg,var(--indigo),var(--violet));}
-    .btn-primary:hover{box-shadow:0 10px 30px rgba(129,140,248,.35); transform:translateY(-1px) scale(1.02)}
-    .btn-ghost{border:1px solid rgba(255,255,255,.1)}
-    .gradient-text{
-      background:linear-gradient(90deg,#818cf8,#c084fc,#e879f9);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      background-size:200% 100%; animation:shine 6s ease-in-out infinite;
-    }
-    @keyframes shine{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    .card{
-      background:rgba(17,24,39,.7);
-      border:1px solid rgba(255,255,255,.06);
-      backdrop-filter:saturate(180%) blur(6px);
-      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-    }
-    .card:hover{transform:translateY(-6px); box-shadow:0 25px 50px rgba(129,140,248,.15); border-color:rgba(129,140,248,.35)}
-    .neon-border{box-shadow:0 0 0 1px rgba(167,139,250,.25),0 8px 40px rgba(124,58,237,.18) inset}
-
-    .reveal{opacity:0; transform:translateY(18px); transition:all .7s cubic-bezier(.22,1,.36,1)}
-    .reveal.show{opacity:1; transform:translateY(0)}
-
-    .nav-link{position:relative}
-    .nav-link.active::after{
-      content:""; position:absolute; left:0; right:0; bottom:-10px; height:2px;
-      background:linear-gradient(90deg,#818cf8,#a855f7); border-radius:999px;
-    }
-
-    .checkmark{
-      width:80px;height:80px;border-radius:50%;margin:0 auto;background:#16a34a22;border:2px solid #22c55e;position:relative;
-      animation:pop .5s ease-out forwards;
-    }
-    .checkmark::after{
-      content:""; position:absolute; left:23px; top:34px; width:14px; height:28px;
-      border-right:4px solid #22c55e; border-bottom:4px solid #22c55e; transform:rotate(40deg) scale(.6);
-      transform-origin:left top; animation:draw .5s .2s ease-out forwards;
-    }
-    @keyframes pop{from{transform:scale(.6);opacity:.3}to{transform:scale(1);opacity:1}}
-    @keyframes draw{to{transform:rotate(40deg) scale(1)}}
-
-    .tilt {transform-style:preserve-3d; will-change:transform}
-    .tilt:hover .tilt-inner{transform:translateZ(14px)}
-    .tilt-inner{transition:transform .3s ease}
-
-    ::-webkit-scrollbar{width:10px} ::-webkit-scrollbar-track{background:#0f172a}
-    ::-webkit-scrollbar-thumb{background:#334155;border-radius:6px}
-
-    .drawer{transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease}
-    .drawer.show{transform:translateY(0); opacity:1; pointer-events:auto}
-
-    /* ========================= */
-    /* 📱 MOBILE & TABLET FIXES */
-    /* ========================= */
-    @media (max-width:1024px){
-      h1,h2{line-height:1.25;}
-      h2{font-size:2rem;}
-    }
-    @media (max-width:768px){
-      .grid{grid-template-columns:1fr!important;}
-      .neon-border{margin-top:2rem;width:90%;margin-left:auto;margin-right:auto;}
-    }
-    @media (max-width:640px){
-      header .text-xl{font-size:1.1rem;}
-      header .btn-primary{padding:0.5rem 1rem;font-size:0.85rem;}
-      header .btn-ghost{display:none;}
-      .hero-bg h1{font-size:2rem;line-height:1.2;}
-      .hero-bg p{font-size:1rem;padding:0 0.75rem;}
-      .hero-bg .flex{flex-direction:column;}
-      .hero-bg .flex a{width:100%;text-align:center;}
-      #signup-form input,#signup-form button{font-size:0.9rem;}
-      #signup-form{padding:0.5rem;}
-      footer{padding:2rem 1rem;font-size:0.85rem;}
-    }
-    @media (max-width:768px){
-      #drawer{height:0;}
-      .mobile-menu-bg{background: #0b0f19;}
-    }
-  </style>
-</head>
-<!-- BODY CONTENT UNCHANGED -->
-  <body class="text-white selection:bg-indigo-500/30">
-  <!-- Header -->
-  <header id="header" class="sticky top-0 z-40 border-b border-white/5 bg-[#0b0f19]/70 backdrop-blur-xl">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-      <a href="#" class="text-xl md:text-2xl font-extrabold tracking-wider">DIGICLOAK</a>
-
-      <nav class="hidden md:flex items-center gap-8 text-sm">
-        <a class="nav-link hover:text-white/90 text-white/70" href="#problem">The Problem</a>
-        <a class="nav-link hover:text-white/90 text-white/70" href="#solution">Our Solution</a>
-        <a class="nav-link hover:text-white/90 text-white/70" href="#features">Features</a>
-        <a class="nav-link hover:text-white/90 text-white/70" href="#pricing">Pricing</a>
-        <a class="nav-link hover:text-white/90 text-white/70" href="#faq">FAQ</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="#signup" class="btn-ghost hidden md:inline-block rounded-full px-4 py-2 text-sm hover:bg-white/5">Get Early Access</a>
-        <a href="#signup" class="btn-primary rounded-full px-4 py-2 text-sm font-semibold hover:scale-[1.02] transition">Join Waitlist</a>
-
-        <!-- Mobile -->
-        <button id="menuBtn" class="md:hidden rounded-lg p-2 hover:bg-white/10" aria-label="Open menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div id="drawer" class="md:hidden drawer bg-[#0b0f19] border-t border-white/5">
-      <div class="px-5 py-3 grid gap-2 mobile-menu-bg">
-        <a class="block py-2 text-white/80" href="#problem">The Problem</a>
-        <a class="block py-2 text-white/80" href="#solution">Our Solution</a>
-        <a class="block py-2 text-white/80" href="#features">Features</a>
-        <a class="block py-2 text-white/80" href="#pricing">Pricing</a>
-        <a class="block py-2 text-white/80" href="#faq">FAQ</a>
-        <a class="block mt-2 btn-primary text-center rounded-lg py-2 font-semibold" href="#signup">Join Waitlist</a>
-      </div>
-    </div>
-  </header>  
-
-  <!-- HERO -->
- <section class="hero-bg pt-0 mt-0">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-
-    <div class="max-w-7xl mx-auto px-6 pt-24 pb-28 text-center">
-      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight reveal">
-        Stop Searching. <span class="gradient-text">Start Doing.</span>
-      </h1>
-      <p class="mt-6 text-lg md:text-xl text-white/70 max-w-3xl mx-auto reveal">
-        A one-time job marketplace connecting people who need help with verified workers nearby.
-        No spam. No delays. Just real work—done fast.
-      </p>
-      <div class="mt-10 flex items-center justify-center gap-3 reveal">
-        <a href="#signup" class="btn-primary rounded-full px-6 py-3 font-semibold hover:scale-[1.03] transition">Join the Waitlist</a>
-        <a href="#features" class="btn-ghost rounded-full px-6 py-3">See how it works</a>
-      </div>
-
-      <!-- Trust counters -->
-      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto reveal">
-        <div class="card rounded-2xl p-5 text-center">
-          <div class="text-3xl font-extrabold gradient-text counter" data-target="98">0</div>
-          <div class="text-xs text-white/60 mt-1">Cities in waitlist</div>
-        </div>
-        <div class="card rounded-2xl p-5 text-center">
-          <div class="text-3xl font-extrabold gradient-text counter" data-target="23500">0</div>
-          <div class="text-xs text-white/60 mt-1">Tasks matched (beta)</div>
-        </div>
-        <div class="card rounded-2xl p-5 text-center">
-          <div class="text-3xl font-extrabold gradient-text counter" data-target="2">0</div>
-          <div class="text-xs text-white/60 mt-1">Platform fee (%)</div>
-        </div>
-        <div class="card rounded-2xl p-5 text-center">
-          <div class="text-3xl font-extrabold gradient-text counter" data-target="4.9">0</div>
-          <div class="text-xs text-white/60 mt-1">Avg. rating</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROBLEM -->
-  <section id="problem" class="px-6 py-20 bg-[#0c1222]">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center reveal">
-        <p class="tracking-widest text-xs font-semibold text-indigo-300">THE PROBLEM</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Finding reliable help shouldn’t be a full-time job.</h2>
-        <p class="mt-4 text-white/70 max-w-3xl mx-auto">Classifieds and random DMs cause ghosting, delays, and awkward payments. You needed it done yesterday.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-xl font-semibold">Spam & Ghosting</h3>
-            <p class="text-white/70 mt-2">Noise overwhelms signal. Real conversations drown in low-ball offers.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-xl font-semibold">Unclear Timelines</h3>
-            <p class="text-white/70 mt-2">“Tomorrow” becomes next week. Urgency is ignored and work stalls.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-xl font-semibold">Payment Headaches</h3>
-            <p class="text-white/70 mt-2">Cash is risky. Haggling is awkward. No safety if things go wrong.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY DIFFERENT -->
-  <section class="px-6 py-20">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center reveal">
-        <p class="tracking-widest text-xs font-semibold text-indigo-300">WHY WE'RE DIFFERENT</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">We cut through the chaos.</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <div class="card rounded-2xl p-6 reveal">
-          <h3 class="text-xl font-semibold">Focused Marketplace</h3>
-          <p class="text-white/70 mt-2">Less “digital garage sale,” more intent. Only serious posters & workers.</p>
-        </div>
-        <div class="card rounded-2xl p-6 reveal">
-          <h3 class="text-xl font-semibold">Flexible Pricing</h3>
-          <p class="text-white/70 mt-2">Set a budget or counter-offer. No inflated aggregator markups.</p>
-        </div>
-        <div class="card rounded-2xl p-6 reveal">
-          <h3 class="text-xl font-semibold">Fair 2% Fee</h3>
-          <p class="text-white/70 mt-2">On success only. Workers earn more, posters pay less.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOLUTION / ROADMAP -->
-  <section id="solution" class="px-6 py-20 hero-bg">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center reveal">
-        <p class="tracking-widest text-xs font-semibold text-indigo-300">THE ROADMAP</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">From task to done — fast.</h2>
-        <p class="text-white/70 max-w-3xl mx-auto mt-4">A clear, OTP-verified flow for both sides of the marketplace.</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8 mt-12">
-        <!-- Posters -->
-        <div class="card rounded-2xl p-6 reveal">
-          <h3 class="text-2xl font-bold">If you need help (Poster)</h3>
-          <ol class="mt-5 space-y-5 border-l border-white/10 pl-6">
-            <li><span class="font-semibold">Post in 60s</span> — describe the task & set a budget.</li>
-            <li><span class="font-semibold">Negotiate fast</span> — timed offers from nearby workers.</li>
-            <li><span class="font-semibold">Secure escrow</span> — pay safely; funds are held.</li>
-            <li><span class="font-semibold">Verify & rate</span> — use OTP on completion to release payment.</li>
-          </ol>
-        </div>
-        <!-- Workers -->
-        <div class="card rounded-2xl p-6 reveal">
-          <h3 class="text-2xl font-bold">If you’re ready to work (Worker)</h3>
-          <ol class="mt-5 space-y-5 border-l border-white/10 pl-6">
-            <li><span class="font-semibold">Find nearby</span> — live map of tasks around you.</li>
-            <li><span class="font-semibold">Offer & win</span> — accept budget or send counter-offer.</li>
-            <li><span class="font-semibold">Do the job</span> — verify arrival with OTP; complete the task.</li>
-            <li><span class="font-semibold">Get paid instantly</span> — money hits wallet post-OTP.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<section class="py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-sm font-bold uppercase tracking-widest text-purple-400">Highlights</h2>
-    <h3 class="text-4xl font-extrabold mt-3 mb-10">Empowering the New Era of Work</h3>
-  </div>
-
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">0% Commission from Workers</h4>
-      <p class="text-gray-300 text-sm">DIGICLOAK believes in pure empowerment — workers keep what they earn, with absolutely no hidden charges or deductions.</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">Empowering the Young & Active</h4>
-      <p class="text-gray-300 text-sm">We aim to create opportunities for millions of young, skilled, and energetic individuals to thrive through flexible, on-demand work.</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">No Interviews, No Certifications</h4>
-      <p class="text-gray-300 text-sm">Work shouldn’t depend on degrees or interviews — just skill, endurance, and hard work that prove your worth in real time.</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">Built for the AI + Gig Economy Era</h4>
-      <p class="text-gray-300 text-sm">As AI transforms industries, the gig economy is growing in parallel — empowering people to control their income and time like never before.</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">Real Work, Real Flexibility</h4>
-      <p class="text-gray-300 text-sm">Work when you want, where you want — DIGICLOAK is redefining the meaning of employment and freedom of work.</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">Empowerment through Simplicity</h4>
-      <p class="text-gray-300 text-sm">A single tap connects talent to opportunity — no agencies, no middlemen, just fair and fast connections between people.</p>
-    </div>
-  </div>
-</section>
-<section class="py-20 px-6 bg-gradient-to-b from-gray-900 via-gray-850 to-gray-800 text-white">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-sm font-bold uppercase tracking-widest text-purple-400">Research-Backed Growth</h2>
-    <h3 class="text-4xl font-extrabold mt-3 mb-8">The Rise of the Gig Economy in the AI Era</h3>
-    <p class="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-      As artificial intelligence reshapes industries, flexible, skill-based work is becoming the foundation of a new global workforce. 
-      DIGICLOAK stands at this intersection — empowering individuals to earn, grow, and work on their own terms.
-    </p>
-  </div>
-
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-14">
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">📈 Explosive Market Growth</h4>
-      <p class="text-gray-300 text-sm">
-        The global gig economy is projected to approach <span class="text-purple-200 font-semibold">$900 B+</span> by <span class="font-semibold">2030</span>, 
-        growing from ~$414 B in 2022 — fueled by digital platforms and on-demand work culture.
-      </p>
-      <p class="text-xs text-gray-500 mt-2">Source: Passport Photo (2024), Lucintel (2024)</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">🤝 AI x Human Collaboration</h4>
-      <p class="text-gray-300 text-sm">
-        Research shows the rise of AI-driven task matching and digital platforms has accelerated the shift toward 
-        independent and remote work models across sectors.
-      </p>
-      <p class="text-xs text-gray-500 mt-2">Source: arXiv Research Paper (2023)</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">🌍 Global Workforce Shift</h4>
-      <p class="text-gray-300 text-sm">
-        Studies suggest over <span class="font-semibold">50% of professionals</span> will participate in gig or freelance work by 2030, 
-        redefining what “employment” means in the AI economy.
-      </p>
-      <p class="text-xs text-gray-500 mt-2">Source: Forbes (2024), Business Research Insights (2023)</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">💻 Tech-Led Empowerment</h4>
-      <p class="text-gray-300 text-sm">
-        Digital platforms like DIGICLOAK embody the evolution of human empowerment — combining AI tools, 
-        transparent systems, and 0% worker commissions to redefine opportunity.
-      </p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">📊 Sustainable Growth Path</h4>
-      <p class="text-gray-300 text-sm">
-        With a projected CAGR of <span class="font-semibold">23.4%</span> through 2030, 
-        the gig sector is outpacing traditional employment — a sign of global behavioral and technological change.
-      </p>
-      <p class="text-xs text-gray-500 mt-2">Source: Lucintel (2024), Grand View Research (2023)</p>
-    </div>
-
-    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-105 transition-transform">
-      <h4 class="text-xl font-semibold mb-3 text-purple-300">⚡ Future of Work</h4>
-      <p class="text-gray-300 text-sm">
-        The gig economy is not a side trend — it’s the backbone of the new world of work where AI and human talent 
-        coexist, complementing each other in real time.
-      </p>
-    </div>
-  </div>
-
-  <div class="text-center mt-16 text-gray-400 text-sm max-w-3xl mx-auto">
-    <p>📚 Backed by studies from Lucintel, Grand View Research, Forbes, and arXiv — DIGICLOAK represents the future of equitable, AI-empowered, 
-      skill-based work.</p>
-  </div>
-</section>
-
-  <!-- FEATURES -->
-  <section id="features" class="px-6 py-20 bg-[#0c1222]">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center reveal">
-        <p class="tracking-widest text-xs font-semibold text-indigo-300">FEATURES</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Built for speed, safety & trust.</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-lg font-semibold">Timed Offers</h3>
-            <p class="text-white/70 mt-2">Auto-expire low intent. Keep serious deals moving.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-lg font-semibold">Escrow & OTP</h3>
-            <p class="text-white/70 mt-2">Payment safety for posters; payout certainty for workers.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-lg font-semibold">Verified Profiles</h3>
-            <p class="text-white/70 mt-2">ID, reviews, repeat history, and on-time completion scores.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-lg font-semibold">In-app Chat</h3>
-            <p class="text-white/70 mt-2">Keep everything in one place; auto-quote summaries.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-lg font-semibold">Live Map</h3>
-            <p class="text-white/70 mt-2">Find jobs or workers in real-time with smart radius.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal tilt">
-          <div class="tilt-inner">
-            <h3 class="text-lg font-semibold">Low 2% Fee</h3>
-            <p class="text-white/70 mt-2">Fair for everyone. On success only.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APP PREVIEW / SOCIAL PROOF -->
-  <section class="px-6 py-20">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-      <div class="reveal">
-        <p class="tracking-widest text-xs font-semibold text-indigo-300">APP PREVIEW</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Clean, modern & fast.</h2>
-        <p class="text-white/70 mt-4">A minimal interface that gets out of the way. Post a task, negotiate, verify, done.</p>
-        <ul class="mt-6 space-y-3 text-white/80">
-          <li>• 60-second posting with smart templates</li>
-          <li>• One-tap counter-offers</li>
-          <li>• OTP arrival & completion checks</li>
-          <li>• Instant wallet payouts</li>
-        </ul>
-        <div class="mt-8 flex gap-3">
-          <a href="#signup" class="btn-primary rounded-full px-6 py-3 font-semibold hover:scale-[1.03] transition">Get Early Access</a>
-          <a href="#pricing" class="btn-ghost rounded-full px-6 py-3">View Pricing</a>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="relative rounded-[28px] p-2 neon-border" style="background:linear-gradient(180deg,#0b0f19,#0f1222)">
-    <div class="rounded-[24px] overflow-hidden border border-white/10">
-        <div class="relative h-[420px] bg-[radial-gradient(circle_at_20%_0%,rgba(129,140,248,.25),transparent_60%),radial-gradient(circle_at_80%_100%,rgba(232,121,249,.18),transparent_50%)] overflow-hidden">
-
-            <video
-                src="digicloak-app-demo.mp4"  alt="DIGICLOAK mobile app preview video"
-                class="absolute inset-0 w-full h-full object-cover object-center rounded-[20px] shadow-[0_0_30px_rgba(138,70,255,0.4)] border border-white/10"
-                autoplay
-                loop
-                playsinline
-                poster="ChatGPT Image Oct 23, 2025, 01_44_43 PM.jpg" >
-                Your browser does not support the video tag.
-            </video>
-
-            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
-        </div>
-    </div>
-</div>
-<p class="text-xs text-white/50 mt-3 text-center">
-    **This is a AI Generated Preview of the App - May not be same in Live Version**
-</p>
-
-  </section>
-
-  <!-- MARKET INSIGHTS -->
-  <section class="px-6 py-20 hero-bg">
-    <div class="max-w-5xl mx-auto text-center">
-      <p class="tracking-widest text-xs font-semibold text-indigo-300">MARKET INSIGHTS</p>
-      <h2 class="text-3xl md:text-5xl font-extrabold mt-3 reveal">On-demand is exploding.</h2>
-
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <div class="card rounded-2xl p-6 text-left reveal">
-          <h3 class="font-semibold text-lg">“Do-it-for-me” economy</h3>
-          <p class="text-white/70 mt-2">Busy professionals outsource everyday tasks. Demand keeps climbing.</p>
-        </div>
-        <div class="card rounded-2xl p-6 text-left reveal">
-          <h3 class="font-semibold text-lg">Trust deficit</h3>
-          <p class="text-white/70 mt-2">Verification + escrow unlock the cautious majority avoiding classifieds.</p>
-        </div>
-        <div class="card rounded-2xl p-6 text-left reveal">
-          <h3 class="font-semibold text-lg">Direct savings</h3>
-          <p class="text-white/70 mt-2">Ditch 30–50% middle-fees. 2% success fee makes both sides win.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing" class="px-6 py-20">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl md:text-5xl font-extrabold reveal">Simple, transparent pricing</h2>
-      <p class="text-white/70 mt-3 reveal">No hidden fees. Just honest value.</p>
-
-      <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <div class="card rounded-2xl p-8 text-left reveal">
-          <h3 class="text-xl font-bold">Pay-As-You-Go</h3>
-          <p class="text-white/70 mt-2">Great for one-off tasks. Posting is free.</p>
-          <p class="text-5xl font-extrabold mt-6">2<span class="text-2xl">%</span></p>
-          <p class="text-white/60">Commission on successful jobs</p>
-        </div>
-
-        <div class="card rounded-2xl p-8 text-left border-2 border-violet-500/50 reveal">
-          <h3 class="text-xl font-bold">Pro Subscription</h3>
-          <p class="text-white/70 mt-2">For frequent users & small teams.</p>
-          <p class="text-5xl font-extrabold mt-6">₹999<span class="text-xl">/mo</span></p>
-          <p class="text-white/60">Includes 5 job posts per month with 0% commission</p>
-        </div>
-
-        <div class="card rounded-2xl p-8 text-left reveal">
-          <h3 class="text-xl font-bold">Post Add-ons</h3>
-          <p class="text-white/70 mt-2">Boost visibility to get faster responses.</p>
-          <p class="text-5xl font-extrabold mt-6">₹99<span class="text-xl">/each</span></p>
-          <p class="text-white/60">Mark as “Urgent” or “Featured” (24 hrs)</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="px-6 py-20 bg-[#0c1222]">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center reveal">
-        <p class="tracking-widest text-xs font-semibold text-indigo-300">WHAT USERS SAY</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Loved by posters & workers</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <div class="card rounded-2xl p-6 reveal">
-          <p class="text-white/80">“Found a plumber in 15 minutes. OTP + escrow made it worry-free.”</p>
-          <div class="mt-4 text-sm text-white/60">— Ananya, Bengaluru</div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal">
-          <p class="text-white/80">“I do 3–4 quick jobs a day now. Payout is instant after completion.”</p>
-          <div class="mt-4 text-sm text-white/60">— Rakesh, Pune</div>
-        </div>
-        <div class="card rounded-2xl p-6 reveal">
-          <p class="text-white/80">“No calls back and forth. Negotiation is clean and fast.”</p>
-          <div class="mt-4 text-sm text-white/60">— Isha, Delhi</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="px-6 py-20">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center reveal">
-        <p class="tracking-widest text-xs font-semibold text-indigo-300">FAQ</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold mt-3">Answers, upfront.</h2>
-      </div>
-
-      <div class="mt-10 space-y-4">
-        <details class="card rounded-xl p-5 reveal">
-          <summary class="cursor-pointer font-semibold">How does payment work?</summary>
-          <p class="text-white/70 mt-2">You pay into secure escrow when an offer is accepted. Funds release after OTP-verified completion.</p>
-        </details>
-        <details class="card rounded-xl p-5 reveal">
-          <summary class="cursor-pointer font-semibold">What fees does Digicloak charge?</summary>
-          <p class="text-white/70 mt-2">Only 2% on successful jobs. Pro subscribers pay 0% for 5 posts/month.</p>
-        </details>
-        <details class="card rounded-xl p-5 reveal">
-          <summary class="cursor-pointer font-semibold">How are workers verified?</summary>
-          <p class="text-white/70 mt-2">ID checks, reviews, repeat history, completion rates, and on-time delivery signals.</p>
-        </details>
-        <details class="card rounded-xl p-5 reveal">
-          <summary class="cursor-pointer font-semibold">Is there support?</summary>
-          <p class="text-white/70 mt-2">Yes. In-app chat, dispute flow, and priority support for Pro.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- SIGNUP -->
-  <section id="signup" class="px-6 py-20 hero-bg">
-    <div class="max-w-2xl mx-auto" id="signup-container">
-      <div class="card rounded-2xl p-8 reveal">
-        <h2 class="text-3xl font-extrabold text-center">Be the first to know</h2>
-        <p class="text-center text-white/70 mt-2">Sign up for early access and launch updates.</p>
-
-        <form id="signup-form" class="mt-6 space-y-4">
-          <input name="name" type="text" placeholder="Full Name" required class="w-full p-3 bg-white/5 border border-white/10 rounded-lg placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
-          <input name="email" type="email" placeholder="Email Address" required class="w-full p-3 bg-white/5 border border-white/10 rounded-lg placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
-          <input name="phone" type="tel" placeholder="Phone Number" required class="w-full p-3 bg-white/5 border border-white/10 rounded-lg placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
-          <button id="submit-btn" type="submit" class="w-full btn-primary rounded-lg py-3 font-semibold hover:scale-[1.02] transition">Notify Me</button>
-          <p id="form-error" class="hidden text-sm text-rose-400 text-center">Something went wrong. Please try again.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="px-6 py-16 bg-[#0c1222]">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl md:text-5xl font-extrabold reveal">Real work. Real pay. Real fast.</h2>
-      <p class="text-white/70 mt-3 reveal">Post your first task or grab one nearby — and let’s get it done.</p>
-      <div class="mt-6 reveal">
-        <a href="#signup" class="btn-primary rounded-full px-6 py-3 font-semibold hover:scale-[1.03] transition">Join the Waitlist</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="text-center p-8 text-white/60 border-t border-white/5">
-    <p>&copy; <span id="year"></span> Digicloak. All rights reserved.</p>
-  </footer>
-
-  <!-- Back to top -->
-  <button id="toTop" class="fixed bottom-6 right-6 hidden rounded-full p-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10" aria-label="Back to top">
-    ↑
-  </button>
-
-  <!-- Scripts -->
-  <script>
-    // -------- Utilities
-    const $ = sel => document.querySelector(sel);
-    const $$ = sel => [...document.querySelectorAll(sel)];
-
-    // Year
-    $('#year').textContent = new Date().getFullYear();
-
-    // Mobile drawer
-    const menuBtn = $('#menuBtn'); const drawer = $('#drawer');
-    menuBtn?.addEventListener('click', () => drawer.classList.toggle('show'));
-    drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click',()=>drawer.classList.remove('show')));
-
-    // Reveal on scroll
-    const revealEls = $$('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
-    },{threshold:.12});
-    revealEls.forEach(el => io.observe(el));
-
-    // Active nav highlighting
-    const sections = ['#problem','#solution','#features','#pricing','#faq'].map(id => document.querySelector(id));
-    const links = $$('.nav-link');
-    const spy = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        const id = '#'+entry.target.id;
-        const link = [...links].find(a=>a.getAttribute('href')===id);
-        if(entry.isIntersecting){
-          links.forEach(l=>l.classList.remove('active'));
-          link?.classList.add('active');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A0A0C">
+
+<title>IT Procurement, Cybersecurity &amp; CERT-In Audits | DigiCloak</title>
+<meta name="description" content="IT hardware and software procurement, cybersecurity and VAPT, and CERT-In empanelled audits with ISO 27001 and SOC 2 — three departments, one vendor, delivered remote-first across India.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://digicloak.in/">
+<meta name="author" content="DigiCloak">
+<meta name="geo.region" content="IN-TN">
+<meta name="geo.placename" content="Chennai">
+<link rel="alternate" hreflang="en-in" href="https://digicloak.in/">
+<link rel="alternate" hreflang="x-default" href="https://digicloak.in/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digicloak.in/">
+<meta property="og:site_name" content="DigiCloak">
+<meta property="og:title" content="DigiCloak — IT Procurement, Cybersecurity &amp; CERT-In Audits">
+<meta property="og:description" content="Three departments, one vendor: procurement, cybersecurity, and CERT-In empanelled audits and certification. Delivered remote-first across India.">
+<meta property="og:image" content="https://digicloak.in/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DigiCloak — procurement, cybersecurity and audit services">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DigiCloak — IT Procurement, Cybersecurity &amp; CERT-In Audits">
+<meta name="twitter:description" content="Three departments, one vendor: procurement, cybersecurity, and CERT-In empanelled audits and certification. Delivered remote-first across India.">
+<meta name="twitter:image" content="https://digicloak.in/og-image.png">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://digicloak.in/#organisation",
+      "name": "DigiCloak",
+      "legalName": "Shine Ventures",
+      "alternateName": "Shine Ventures",
+      "url": "https://digicloak.in/",
+      "logo": "https://digicloak.in/logo.png",
+      "image": "https://digicloak.in/og-image.png",
+      "description": "DigiCloak operates three departments for growing businesses across India: IT hardware and software procurement, cybersecurity and VAPT, and CERT-In empanelled audits with ISO 27001, ISO 22301 and SOC 2 certification support. DigiCloak is a brand of Shine Ventures, delivered remote-first by a core team plus a vetted network of specialists — many holding full-time roles inside corporate companies in their field — with transparent, itemised pricing and no hidden markup.",
+      "slogan": "Buy it, secure it, certify it.",
+      "areaServed": { "@type": "Country", "name": "India" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9944058249",
+      "email": "hello@digicloak.in",
+      "priceRange": "$$",
+      "knowsLanguage": ["en", "ta", "hi"],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-9944058249",
+          "contactType": "sales",
+          "areaServed": "IN",
+          "availableLanguage": ["English", "Tamil", "Hindi"]
+        },
+        {
+          "@type": "ContactPoint",
+          "name": "Rejoy K Roy",
+          "telephone": "+91-9944058249",
+          "email": "hello@digicloak.in",
+          "contactType": "grievance",
+          "areaServed": "IN",
+          "availableLanguage": ["English", "Tamil", "Hindi"]
         }
-      });
-    },{rootMargin:'-45% 0px -45% 0px', threshold:0});
-    sections.forEach(s=>spy.observe(s));
-
-    // Back to top
-    const toTop = $('#toTop');
-    window.addEventListener('scroll',()=>{
-      const y = window.scrollY;
-      toTop.classList.toggle('hidden', y < 600);
-    });
-    toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-    // Tilt effect
-    function mountTilt(card){
-      let rAF; const strength = 10;
-      function move(e){
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; const y = e.clientY - rect.top;
-        const rx = ((y - rect.height/2) / rect.height) * -strength;
-        const ry = ((x - rect.width/2) / rect.width) * strength;
-        cancelAnimationFrame(rAF);
-        rAF = requestAnimationFrame(()=> card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`);
+      ],
+      "sameAs": [],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "DigiCloak departments",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "IT procurement and infrastructure",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT hardware procurement — laptops, desktops, workstations and servers", "serviceType": "IT hardware procurement" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software and cloud licence procurement — Google Workspace, Microsoft 365, AWS, Azure", "serviceType": "Software licensing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Office IT rollout, structured cabling and networking", "serviceType": "IT infrastructure setup" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "VOIP, leased line and SD-WAN connectivity", "serviceType": "Enterprise connectivity" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Annual maintenance contracts, AMC and ASC support", "serviceType": "IT maintenance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT asset lifecycle management, buyback and e-waste disposal", "serviceType": "IT asset management" } }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Cybersecurity",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vulnerability assessment and penetration testing (VAPT)", "serviceType": "VAPT" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web, mobile and API application penetration testing", "serviceType": "Application security testing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud security configuration review for AWS, Azure and Google Cloud", "serviceType": "Cloud security" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Red teaming and breach simulation", "serviceType": "Red team assessment" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Endpoint protection, EDR and identity and access management", "serviceType": "Managed endpoint security" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Incident response, containment and digital forensics", "serviceType": "Incident response" } }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Audits and certification",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CERT-In cyber security audit delivered with empanelled auditors", "serviceType": "CERT-In security audit" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO/IEC 27001:2022 information security management certification support", "serviceType": "ISO 27001 certification" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO 22301:2019 business continuity management implementation", "serviceType": "ISO 22301 certification" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SOC 2 Type I and Type II readiness and audit support", "serviceType": "SOC 2 audit readiness" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DPDP Act 2023 readiness and grievance-redressal design", "serviceType": "Data protection compliance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GDPR and PCI DSS readiness", "serviceType": "International data protection compliance" } }
+            ]
+          }
+        ]
       }
-      function reset(){ card.style.transform = 'rotateX(0) rotateY(0)'; }
-      card.addEventListener('mousemove',move);
-      card.addEventListener('mouseleave',()=>{ cancelAnimationFrame(rAF); reset(); });
-    }
-    $$('.tilt').forEach(mountTilt);
-
-    // Counters
-    const counters = $$('.counter');
-    const counterIO = new IntersectionObserver((entries)=>{
-      entries.forEach(({isIntersecting,target})=>{
-        if(!isIntersecting) return;
-        const targetVal = parseFloat(target.dataset.target);
-        const isInt = Number.isInteger(targetVal);
-        const dur = 1200; const start = performance.now();
-        function tick(now){
-          const p = Math.min((now - start)/dur,1);
-          const num = targetVal * (0.2 + 0.8 * (p*p*(3-2*p))); // ease
-          target.textContent = isInt ? Math.floor(num).toLocaleString() : num.toFixed(1);
-          if(p<1) requestAnimationFrame(tick);
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://digicloak.in/#website",
+      "url": "https://digicloak.in/",
+      "name": "DigiCloak",
+      "publisher": { "@id": "https://digicloak.in/#organisation" },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://digicloak.in/#webpage",
+      "url": "https://digicloak.in/",
+      "name": "DigiCloak — IT Procurement, Cybersecurity and CERT-In Audits",
+      "isPartOf": { "@id": "https://digicloak.in/#website" },
+      "about": { "@id": "https://digicloak.in/#organisation" },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://digicloak.in/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a CERT-In empanelled audit and when does my business need one?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A CERT-In audit is an independent cyber security assessment carried out by an auditing organisation empanelled by the Indian Computer Emergency Response Team under Section 70B of the IT Act, 2000. Sectoral regulators including the RBI, SEBI, IRDAI and UIDAI require regulated entities to be audited by an empanelled auditor, and many enterprise customers and government tenders ask for the same report before onboarding a vendor. DigiCloak scopes the audit, prepares your systems and evidence, and delivers the engagement together with a CERT-In empanelled auditing organisation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can DigiCloak supply hardware and secure it under one contract?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Procurement, cybersecurity and audit run as three departments inside one company, so the laptops and servers we source arrive already imaged, encrypted, enrolled in endpoint protection and recorded in your asset register. That removes the usual gap between the reseller who sold the machine and the auditor who later asks who owns it." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does ISO 27001 certification take?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For most small and mid-sized businesses a first-time ISO/IEC 27001:2022 certification takes roughly three to six months from the initial gap assessment to the certification audit, depending on how much of the information security management system already exists and how quickly evidence can be collected." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between SOC 2 and ISO 27001?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ISO/IEC 27001 is an internationally recognised certification against a formal information security management system standard. SOC 2 is an attestation report assessed against the AICPA Trust Services Criteria, and is more commonly requested by US and global SaaS buyers. Many businesses pursue both, and a large share of the underlying controls and documentation overlap." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a VAPT engagement with DigiCloak cover?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A VAPT engagement covers vulnerability assessment and manual penetration testing across the assets you put in scope: web applications, mobile applications, APIs, internal and external networks, and cloud environments. You receive a prioritised findings report with reproduction steps and business impact, remediation guidance for your engineering team, and a retest to confirm fixes before a clearance certificate is issued." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you only work with businesses in Chennai?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. DigiCloak is a remote-first team, and the great majority of engagements are scoped, delivered and supported entirely over WhatsApp, call and screen-share with clients across India. Hardware and on-site visits are coordinated locally through our delivery-partner network where a physical presence is required." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you manage software licences on an ongoing basis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Beyond initial procurement we manage renewals, seat reconciliation, usage audits and cost optimisation for Google Workspace, Microsoft 365, AWS, Azure and similar platforms, so licence spend stays aligned with actual usage rather than growing quietly year over year." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is DigiCloak able to keep pricing lower than larger vendors?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Two reasons. We are remote-first, so we are not pricing in a large office footprint. And beyond our core team, we work with a vetted network of specialists — many holding full-time roles inside corporate companies in that exact field — brought in project by project rather than kept on a permanent bench. Quotes are itemised and benchmarked, with no hidden markup, so the price you are quoted is the price you pay." }
         }
-        requestAnimationFrame(tick);
-        counterIO.unobserve(target);
-      });
-    },{threshold:.3});
-    counters.forEach(c=>counterIO.observe(c));
-
-    // Parallax orbs
-    const orbs = $$('.orb');
-    document.addEventListener('mousemove', (e)=>{
-      const x = (e.clientX / window.innerWidth - .5) * 10;
-      const y = (e.clientY / window.innerHeight - .5) * 10;
-      orbs.forEach((o,i)=> o.style.transform = `translate(${x*(i?1.6:1)}px, ${y*(i?1.2:1)}px)`);
-    });
-
-    // ---- FORM: Google Sheet submission
-    const form = $('#signup-form');
-    const container = $('#signup-container');
-    const button = $('#submit-btn');
-    const errorEl = $('#form-error');
-    const googleSheetURL = "https://script.google.com/macros/s/AKfycbxoG9_IC0J2nr9VGwEV2S9zz0TdVyjnXwWJvvHU4xvsLWBgzvayokKhDwS4zMyIDgVS7Q/exec";
-
-    form?.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      button.disabled = true; errorEl.classList.add('hidden'); button.textContent = 'Submitting…';
-
-      const formData = new FormData(form);
-      const payload = new URLSearchParams();
-      for(const [k,v] of formData.entries()) payload.append(k,v);
-
-      try{
-        const res = await fetch(googleSheetURL,{method:'POST', body:payload});
-        if(!res.ok) throw new Error('Bad response');
-
-        container.innerHTML = `
-          <div class="card rounded-2xl p-10 text-center reveal show">
-            <div class="checkmark"></div>
-            <h3 class="text-3xl font-extrabold mt-6">You're on the list!</h3>
-            <p class="text-white/70 mt-2">Thanks for signing up. We’ll notify you the moment Digicloak launches.</p>
-            <a href="#features" class="inline-block mt-6 btn-primary rounded-full px-6 py-3 font-semibold">Explore Features</a>
-          </div>
-        `;
-      }catch(err){
-        errorEl.classList.remove('hidden');
-        button.disabled = false; button.textContent = 'Notify Me';
-      }
-    });
-
-    
-  </script>
-        <script>
-  const menuBtn = document.getElementById('menuBtn');
-  const drawer = document.getElementById('drawer');
-  menuBtn.addEventListener('click', () => drawer.classList.toggle('show'));
+      ]
+    }
+  ]
+}
 </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="shell">
+
+<header class="hd">
+  <div class="hd-in">
+    <a class="mark" href="index.html" aria-label="DigiCloak home">
+      <img src="logo.png" width="28" height="28" alt="" loading="eager">
+      DigiCloak
+    </a>
+
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#departments">Departments</a>
+      <a href="#procurement">Procurement</a>
+      <a href="#cybersecurity">Cybersecurity</a>
+      <a href="#audits">Audits</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-wa" href="https://wa.me/919944058249?text=Hi%20DigiCloak%2C%20I%27d%20like%20to%20talk%20about%20procurement%2C%20cybersecurity%20or%20an%20audit." target="_blank" rel="noopener">WhatsApp us</a>
+    </nav>
+
+    <a class="btn btn-wa hd-cta" href="https://wa.me/919944058249?text=Hi%20DigiCloak%2C%20I%27d%20like%20to%20talk%20about%20procurement%2C%20cybersecurity%20or%20an%20audit." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.43 1.32-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.17s.79-2.25 1.07-2.56c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.27.08.15.13.33.02.53-.1.2-.15.33-.3.5-.15.18-.32.39-.46.53-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.1 1.16 1.03 2.14 1.35 2.45 1.51.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.08.99.31.15.51.23.59.36.08.13.08.74-.17 1.43Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <h1>Buy it, secure it, certify it.</h1>
+      <p class="lede">DigiCloak runs three departments under one roof — IT procurement, cybersecurity, and CERT-In empanelled audits and certification. The same team that sources your laptops hardens them, tests them, and stands behind them in the audit.</p>
+      <div class="hero-cta">
+        <a class="btn btn-wa btn-lg" href="https://wa.me/919944058249?text=Hi%20DigiCloak%2C%20I%27d%20like%20to%20talk%20about%20procurement%2C%20cybersecurity%20or%20an%20audit." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.43 1.32-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.17s.79-2.25 1.07-2.56c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.27.08.15.13.33.02.53-.1.2-.15.33-.3.5-.15.18-.32.39-.46.53-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.1 1.16 1.03 2.14 1.35 2.45 1.51.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.08.99.31.15.51.23.59.36.08.13.08.74-.17 1.43Z"/></svg>
+          Talk to us on WhatsApp
+        </a>
+        <a class="btn btn-line btn-lg" href="#departments">See the three departments</a>
+      </div>
+      <p class="hero-meta">
+        <span>Delivered <b>remote-first</b> across <b>India</b></span>
+        <span>Backed by a vetted <b>specialist network</b></span>
+        <span>Reply within <b>one working day</b></span>
+      </p>
+    </div>
+
+    <div class="lattice-wrap">
+      <svg class="lattice" viewBox="0 0 520 440" role="img" aria-label="Diagram of three interwoven service strands representing procurement, cybersecurity and audit forming a single protective layer">
+        <defs>
+          <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+            <stop offset=".18" stop-color="#fff" stop-opacity="1"/>
+            <stop offset=".82" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+          <mask id="edgemask"><rect width="520" height="440" fill="url(#fade)"/></mask>
+        </defs>
+
+        <g mask="url(#edgemask)">
+          <g stroke="#222327" stroke-width="1">
+            <path d="M40 110H480M40 180H480M40 250H480M40 320H480"/>
+            <path d="M110 60V390M190 60V390M270 60V390M350 60V390M430 60V390"/>
+          </g>
+
+          <g class="glow">
+            <path class="strand s-proc"   d="M20 300C110 300 130 150 220 150S340 300 430 300 500 170 500 170" stroke-width="5"/>
+            <path class="strand s-cyber"  d="M20 220C110 220 130 330 220 330S340 130 430 130 500 260 500 260" stroke-width="5"/>
+            <path class="strand s-assure" d="M20 150C110 150 150 260 240 260S360 200 440 200 500 320 500 320" stroke-width="5"/>
+          </g>
+
+          <path class="strand s-proc draw"        d="M20 300C110 300 130 150 220 150S340 300 430 300 500 170 500 170"/>
+          <path class="strand s-cyber draw d2"    d="M20 220C110 220 130 330 220 330S340 130 430 130 500 260 500 260"/>
+          <path class="strand s-assure draw d3"   d="M20 150C110 150 150 260 240 260S360 200 440 200 500 320 500 320"/>
+
+          <g class="node" fill="#E4E4E2">
+            <circle cx="110" cy="180" r="2"/><circle cx="190" cy="250" r="2"/>
+            <circle cx="270" cy="110" r="2"/><circle cx="350" cy="320" r="2"/>
+            <circle cx="430" cy="180" r="2"/><circle cx="110" cy="320" r="2"/>
+          </g>
+          <circle class="pulse" cx="220" cy="150" r="3" fill="#E4E4E2"/>
+          <circle class="pulse p2" cx="430" cy="130" r="3" fill="#B7B8B4"/>
+          <circle class="pulse p3" cx="240" cy="260" r="3" fill="#818181"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="band band-line wrap" id="about">
+  <div class="lead">
+    <h2>How DigiCloak came together</h2>
+    <p>Not a franchise, and not a single generalist wearing three hats.</p>
+  </div>
+  <div class="story-grid">
+    <div class="story-copy">
+      <p>DigiCloak started the way most useful things do — a group of friends who had already spent their careers doing this work separately, for other people's companies, and realised the businesses they knew best were badly served by vendors who could only do one part of the job well.</p>
+      <p>Beyond that founding team, we've built a trusted network of working professionals around us — many holding full-time roles inside corporate companies, in the exact field a given engagement needs. We bring them in project by project, not as a permanent bench. That means the person testing your application or scoping your audit has current, on-the-ground experience, not a title borrowed for the proposal. <b>Every engagement is handled by a specialist in that specific field</b>, not a generalist account manager relaying it to a subcontractor.</p>
+      <p>Because the team and network work remote-first, DigiCloak doesn't carry the overhead of a large office footprint or a permanent bench of consultants — and we pass that saving on. The aim is simple: <b>reliable, affordable, world-class professional services</b>, quoted transparently with no hidden markup, so proper procurement, security and compliance work is within reach of a growing business, not just an enterprise with a compliance budget line.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="dot"></span>
+        <div><h3>Expert-led, not generalist-led</h3><p>Procurement, security and audit are each run by someone whose career is in that field.</p></div>
+      </div>
+      <div class="pillar">
+        <span class="dot"></span>
+        <div><h3>A network, not a bench</h3><p>Specialists brought in per engagement — many working full-time inside corporate companies in that field.</p></div>
+      </div>
+      <div class="pillar">
+        <span class="dot"></span>
+        <div><h3>Remote-first by design</h3><p>Lower overhead than a branch-office vendor, without a lower standard of delivery.</p></div>
+      </div>
+      <div class="pillar">
+        <span class="dot"></span>
+        <div><h3>Transparent, best-cost pricing</h3><p>Itemised, benchmarked quotes with no hidden markup — the number you're quoted is the number you pay.</p></div>
+      </div>
+      <div class="pillar">
+        <span class="dot"></span>
+        <div><h3>One team, one accountable owner</h3><p>Whichever department you start with, one named person owns the outcome end to end.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-line wrap" id="departments">
+  <div class="lead">
+    <h2>Three departments, weighted equally</h2>
+    <p>Most vendors do one of these and subcontract the rest. DigiCloak staffs all three, so nothing falls into the gap between the supplier, the security team and the auditor. Start with any one of them.</p>
+  </div>
+
+  <div class="depts">
+    <a class="dept d-proc" href="#procurement">
+      <span class="dept-code">DC / PRC</span>
+      <h3>Procurement &amp; infrastructure</h3>
+      <p>Hardware, software licences, connectivity and the office build itself — sourced, deployed, supported and tracked through its whole life.</p>
+      <div class="dept-tags"><span class="tag">Laptops &amp; servers</span><span class="tag">Cloud licences</span><span class="tag">AMC</span><span class="tag">Leased lines</span></div>
+    </a>
+
+    <a class="dept d-cyber" href="#cybersecurity">
+      <span class="dept-code">DC / SEC</span>
+      <h3>Cybersecurity</h3>
+      <p>Offensive testing and day-to-day defence — VAPT, cloud and application security, endpoint protection, and response when something does go wrong.</p>
+      <div class="dept-tags"><span class="tag">VAPT</span><span class="tag">Red team</span><span class="tag">Cloud security</span><span class="tag">EDR</span></div>
+    </a>
+
+    <a class="dept d-assure" href="#audits">
+      <span class="dept-code">DC / AUD</span>
+      <h3>Audits &amp; certification</h3>
+      <p>CERT-In empanelled audits, ISO and SOC 2 certification, and the data protection work that regulators and enterprise buyers ask for before they sign.</p>
+      <div class="dept-tags"><span class="tag">CERT-In</span><span class="tag">ISO 27001</span><span class="tag">SOC 2</span><span class="tag">DPDP</span></div>
+    </a>
+  </div>
+</section>
+
+<section class="band band-panel">
+  <div class="wrap">
+
+    <article class="detail d-proc" id="procurement">
+      <div class="detail-head">
+        <div class="rule"></div>
+        <h3>Procurement &amp; infrastructure</h3>
+        <p>From a ten-seat startup office to a multi-site rollout. We quote against real requirements rather than a catalogue, and we own the delivery after the invoice.</p>
+      </div>
+      <ul class="caps">
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h12v8H4z"/><path d="M2 16.5h16"/></svg><div><b>IT hardware procurement</b> — laptops, desktops, workstations, servers, thin clients and monitors from Dell, HP, Lenovo, Apple, Asus and Acer</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15a3.3 3.3 0 0 1-.6-6.55A4.3 4.3 0 0 1 13.7 6.2 3.4 3.4 0 0 1 13.4 13v0"/><path d="M6 15h7.4a3 3 0 0 0 .1-6"/></svg><div><b>Software and cloud licensing</b> — Google Workspace, Microsoft 365, AWS, Azure, Adobe and developer tooling, with renewal and seat reconciliation</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="4" cy="5" r="1.4"/><circle cx="16" cy="5" r="1.4"/><circle cx="10" cy="15.5" r="1.4"/><path d="M4 6.4 10 14M16 6.4 10 14M5.3 5H14.7"/></svg><div><b>Networking and connectivity</b> — switches, firewalls, access points, structured cabling, leased lines, internet leased line failover and SD-WAN</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 3.2 7 3l1 3.3-1.6 1.4c.7 1.7 2 3 3.7 3.7l1.4-1.6L15 10l-.2 2.5c-.2 1.1-1.2 1.8-2.3 1.6C7.8 13 3.7 8.9 2.9 4.2c-.2-1.1.5-2.1 1.6-2.3Z"/></svg><div><b>VOIP and unified communications</b> — IP telephony, call routing and contact-centre setups across multiple offices</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17V4h9v13"/><path d="M8 17v-3h1.5v3M6.5 6.5h1M10.5 6.5h1M6.5 9.5h1M10.5 9.5h1M6.5 12.5h1M10.5 12.5h1"/><path d="M13 17V9h3v8"/></svg><div><b>Office IT rollouts</b> — new premises fitted end to end, including power, UPS, racks and server rooms</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8V4h8v4"/><path d="M4 8h11v5H4z"/><path d="M5.5 13h8v3.5h-8Z"/></svg><div><b>Peripherals and point of sale</b> — printers, scanners, barcode and ID-card printers, POS terminals, cash drawers and handheld terminals</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.8 3.4a3.6 3.6 0 0 0-5 4.7L3.4 14.5l1.9 1.9L11.7 10a3.6 3.6 0 0 0 4.7-5l-2.3 2.3-1.8-.5-.5-1.8 2.3-2.3Z"/></svg><div><b>AMC, ASC and per-call support</b> — annual maintenance and service contracts, on-site engineers and spare-part logistics</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 3.5h5.7l6 6-5.7 5.7-6-6Z"/><circle cx="7" cy="7" r=".9" fill="currentColor" stroke="none"/></svg><div><b>Asset lifecycle management</b> — tagging, asset registers, warranty tracking, refresh planning, buyback and certified e-waste disposal</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.3 3.5 5.8v7.6l6.5 3.5 6.5-3.5V5.8Z"/><path d="M3.5 5.8 10 9.3l6.5-3.5M10 9.3v7.6"/></svg><div><b>Pre-configured deployment</b> — every device imaged, encrypted, MDM-enrolled and added to your asset register before it reaches the user</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6.6"/><path d="M10 6.2v7.8M7.9 8.3c0-.9.9-1.4 2.1-1.4s2.1.6 2.1 1.4-.8 1.2-2.1 1.4c-1.3.2-2.1.6-2.1 1.5s.9 1.4 2.1 1.4 2.1-.5 2.1-1.4"/></svg><div><b>Licence cost optimisation</b> — usage audits that find unused seats and duplicated tools before the renewal lands</div></li>
+      </ul>
+      <div class="marquee-block">
+        <p class="marquee-label">Hardware &amp; software brands we regularly source and license</p>
+        <div class="marquee-wrap">
+          <div class="marquee-track" aria-hidden="true">
+            <span class="marquee-set"><span class="brand-chip"><span class="brand-word">Dell</span></span>
+            <span class="brand-chip"><span class="brand-word">HP</span></span>
+            <span class="brand-chip"><span class="brand-word">Lenovo</span></span>
+            <span class="brand-chip"><span class="brand-word">Apple</span></span>
+            <span class="brand-chip"><span class="brand-word">ASUS</span></span>
+            <span class="brand-chip"><span class="brand-word">Acer</span></span>
+            <span class="brand-chip"><span class="brand-word">Microsoft 365</span></span>
+            <span class="brand-chip"><span class="brand-word">Google Workspace</span></span>
+            <span class="brand-chip"><span class="brand-word">AWS</span></span>
+            <span class="brand-chip"><span class="brand-word">Azure</span></span>
+            <span class="brand-chip"><span class="brand-word">Adobe</span></span></span>
+            <span class="marquee-set" aria-hidden="true"><span class="brand-chip"><span class="brand-word">Dell</span></span>
+            <span class="brand-chip"><span class="brand-word">HP</span></span>
+            <span class="brand-chip"><span class="brand-word">Lenovo</span></span>
+            <span class="brand-chip"><span class="brand-word">Apple</span></span>
+            <span class="brand-chip"><span class="brand-word">ASUS</span></span>
+            <span class="brand-chip"><span class="brand-word">Acer</span></span>
+            <span class="brand-chip"><span class="brand-word">Microsoft 365</span></span>
+            <span class="brand-chip"><span class="brand-word">Google Workspace</span></span>
+            <span class="brand-chip"><span class="brand-word">AWS</span></span>
+            <span class="brand-chip"><span class="brand-word">Azure</span></span>
+            <span class="brand-chip"><span class="brand-word">Adobe</span></span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="detail d-cyber" id="cybersecurity">
+      <div class="detail-head">
+        <div class="rule"></div>
+        <h3>Cybersecurity</h3>
+        <p>Testing that goes past an automated scan, and controls that hold up between tests. Findings come with reproduction steps, business impact and a retest — not a PDF dump.</p>
+      </div>
+      <ul class="caps">
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><circle cx="9" cy="9.4" r="1.7"/><path d="M10.7 11.1l1.6 1.6"/></svg><div><b>Vulnerability assessment and penetration testing</b> — external and internal networks, infrastructure and public-facing assets</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6.8"/><path d="M3.2 10h13.6M10 3.2a10 10 0 0 1 0 13.6 10 10 0 0 1 0-13.6"/></svg><div><b>Web application penetration testing</b> — manual testing against OWASP Top 10, business-logic flaws and authentication bypass</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.3" y="2.2" width="7.4" height="15.6" rx="1.3"/><path d="M9 15.3h2"/></svg><div><b>Mobile application penetration testing</b> — Android and iOS, including local storage, transport security and API abuse</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.3 3v3.4M12.7 3v3.4M5.3 6.4h9.4v2.8a4.7 4.7 0 0 1-9.4 0Z"/><path d="M8.2 14v2.6M11.8 14v2.6"/></svg><div><b>API and microservices security</b> — authorisation, rate limiting, injection and data-exposure testing on REST and GraphQL surfaces</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.6 13.6a3 3 0 0 1-.5-5.96A3.9 3.9 0 0 1 12.7 6a3.1 3.1 0 0 1-.2 6.2"/><rect x="7.6" y="11.6" width="5" height="4.2" rx="0.7"/><path d="M8.6 11.6v-1.1a1.4 1.4 0 0 1 2.8 0v1.1"/></svg><div><b>Cloud security review</b> — AWS, Azure and Google Cloud configuration, IAM privilege paths, network exposure and logging gaps</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="6.8"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r=".7" fill="currentColor" stroke="none"/></svg><div><b>Red teaming and breach simulation</b> — realistic attack paths that test whether your detection and response actually fire</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><path d="M7.2 9.6l1.9 1.9 3.7-3.9"/></svg><div><b>Endpoint protection and EDR</b> — deployment, tuning and monitoring across managed and remote devices</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.1" cy="7.1" r="3.1"/><path d="M9.3 9.3 16.3 16.3M12.7 12l1.6 1.6M14.8 9.9l1.6 1.6"/></svg><div><b>Identity and access management</b> — single sign-on, MFA rollout, privilege review and zero-trust access design</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5.2h11v8.8H3Z"/><path d="M3 5.2l5.5 4.7 5.5-4.7"/><path d="M15.6 11.4l1.8 3.3h-3.6Z"/></svg><div><b>Phishing simulation and awareness</b> — campaigns and training measured on click rate and reporting rate, not attendance</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.2a3.9 3.9 0 0 1 3.9 3.9v3.4H6.1V7.1A3.9 3.9 0 0 1 10 3.2Z"/><path d="M4 13.9h12v1.9H4ZM10 3.2V1.4"/></svg><div><b>Incident response and forensics</b> — containment, root-cause analysis, evidence handling and post-incident reporting</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h12M4 10h12M4 14.5h12"/><circle cx="7.6" cy="5.5" r="1.4"/><circle cx="13.2" cy="10" r="1.4"/><circle cx="6" cy="14.5" r="1.4"/></svg><div><b>Secure configuration and patch management</b> — hardening baselines and a patch cadence you can evidence to an auditor</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.3 6 3.2 10l4.1 4M12.7 6l4.1 4-4.1 4"/></svg><div><b>Source code and secure design review</b> — pre-release review for teams shipping to regulated customers</div></li>
+      </ul>
+    </article>
+
+    <article class="detail d-assure" id="audits">
+      <div class="detail-head">
+        <div class="rule"></div>
+        <h3>Audits &amp; certification</h3>
+        <p>The reports that unblock a tender, a bank onboarding or an enterprise procurement review. We prepare the organisation, run the fieldwork and stay through surveillance.</p>
+      </div>
+      <ul class="caps">
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8.8" r="5.6"/><path d="M7.4 8.8l1.7 1.7L12.6 7"/><path d="M7 13.8 6.1 18l3.9-2 3.9 2-.9-4.2"/></svg><div><b>CERT-In cyber security audit</b> — scoped and delivered with a CERT-In empanelled auditing organisation, mapped to the Comprehensive Cyber Security Audit Policy Guidelines</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.6" y="8.8" width="10.8" height="7.6" rx="1.3"/><path d="M6.8 8.8V6a3.2 3.2 0 0 1 6.4 0v2.8"/><path d="M7.7 12.4l1.3 1.3 2.9-3"/></svg><div><b>Safe-to-host and website security audit</b> — the clearance report government departments and hosting providers ask for before go-live</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v13.6M5.2 5.7h9.6"/><path d="M5.2 5.7 2.9 10.6a2.3 2.3 0 0 0 4.6 0ZM14.8 5.7l-2.3 4.9a2.3 2.3 0 0 0 4.6 0Z"/></svg><div><b>Regulator-driven audits</b> — assessments where RBI, SEBI, IRDAI or UIDAI requirements apply to your entity</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.2 11.6 4h2.4v2.4L15.8 8l-1.8 1.6V12h-2.4L10 13.8 8.2 12H5.8V9.6L4 8l1.8-1.6V4h2.4Z"/><circle cx="10" cy="8" r="1.7"/></svg><div><b>ISO/IEC 27001:2022</b> — gap assessment, ISMS build, Statement of Applicability, internal audit and certification audit support</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><path d="M7.6 8.4a2.6 2.6 0 0 1 4.4-1.5M12.4 9.6a2.6 2.6 0 0 1-4.4 1.5"/><path d="M11.8 6.2h1.2v-1.2M8.2 11.8H7v1.2"/></svg><div><b>ISO 22301:2019</b> — business continuity management system, business impact analysis, and tested recovery plans</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.4 2.4h5.2l3 3v12.2H6.4Z"/><path d="M11.6 2.4v3h3"/><path d="M8.2 10.8l1.8 1.8 2.8-3.2"/></svg><div><b>SOC 2 Type I and Type II</b> — control mapping to Trust Services Criteria, evidence collection and auditor liaison</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><circle cx="10" cy="8.2" r="1.5"/><path d="M7.3 12.8c.4-1.6 1.8-2.2 2.7-2.2s2.3.6 2.7 2.2"/></svg><div><b>DPDP Act 2023 readiness</b> — consent, notice, data-principal rights, retention, grievance-redressal and breach-reporting workflows</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.4" cy="8.4" r="5.8"/><path d="M2.6 8.4h11.6M8.4 2.6a8.6 8.6 0 0 1 0 11.6 8.6 8.6 0 0 1 0-11.6"/><rect x="12.4" y="11.2" width="4.6" height="3.8" rx="0.8"/><path d="M13.3 11.2v-1.2a1.4 1.4 0 0 1 2.8 0v1.2"/></svg><div><b>GDPR and PCI DSS</b> — programmes for businesses serving international customers or handling cardholder data</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 2.2 16.6h15.6Z"/><path d="M10 8.2v3.6"/><circle cx="10" cy="14" r=".2" fill="currentColor" stroke="none"/></svg><div><b>Cyber crisis and incident-reporting readiness</b> — CERT-In reporting timelines and breach-notification workflows built in advance, not improvised after the fact</div></li>
+        <li><svg class="cap-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10s3-5.3 8-5.3S18 10 18 10s-3 5.3-8 5.3S2 10 2 10Z"/><circle cx="10" cy="10" r="2.2"/></svg><div><b>Surveillance and recertification</b> — annual maintenance of the certificate so renewal never turns into a fire drill</div></li>
+      </ul>
+      <div class="marquee-block">
+        <p class="marquee-label">Standards &amp; frameworks our engagements cover</p>
+        <div class="marquee-wrap">
+          <div class="marquee-track track-slow" aria-hidden="true">
+            <span class="marquee-set"><span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 11.6 4h2.4v2.4L15.8 8l-1.8 1.6V12h-2.4L10 13.8 8.2 12H5.8V9.6L4 8l1.8-1.6V4h2.4Z"/><circle cx="10" cy="8" r="1.7"/></svg>
+              <span class="cert-name">ISO/IEC 27001:2022<span class="cert-sub">Information security</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><path d="M7.6 8.4a2.6 2.6 0 0 1 4.4-1.5M12.4 9.6a2.6 2.6 0 0 1-4.4 1.5"/></svg>
+              <span class="cert-name">ISO 22301:2019<span class="cert-sub">Business continuity</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 2.4h5.2l3 3v12.2H6.4Z"/><path d="M11.6 2.4v3h3"/><path d="M8.2 10.8l1.8 1.8 2.8-3.2"/></svg>
+              <span class="cert-name">SOC 2 Type I &amp; II<span class="cert-sub">Trust services criteria</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8.8" r="5.6"/><path d="M7.4 8.8l1.7 1.7L12.6 7"/><path d="M7 13.8 6.1 18l3.9-2 3.9 2-.9-4.2"/></svg>
+              <span class="cert-name">CERT-In empanelled audit<span class="cert-sub">Delivered with empanelled auditors</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><circle cx="10" cy="8.2" r="1.5"/><path d="M7.3 12.8c.4-1.6 1.8-2.2 2.7-2.2s2.3.6 2.7 2.2"/></svg>
+              <span class="cert-name">DPDP Act, 2023<span class="cert-sub">India data protection</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.4" cy="8.4" r="5.8"/><path d="M2.6 8.4h11.6M8.4 2.6a8.6 8.6 0 0 1 0 11.6 8.6 8.6 0 0 1 0-11.6"/><rect x="12.4" y="11.2" width="4.6" height="3.8" rx="0.8"/><path d="M13.3 11.2v-1.2a1.4 1.4 0 0 1 2.8 0v1.2"/></svg>
+              <span class="cert-name">GDPR<span class="cert-sub">EU data protection</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><path d="M7.2 9.6l1.9 1.9 3.7-3.9"/></svg>
+              <span class="cert-name">PCI DSS<span class="cert-sub">Cardholder data security</span></span>
+            </span></span>
+            <span class="marquee-set" aria-hidden="true"><span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 11.6 4h2.4v2.4L15.8 8l-1.8 1.6V12h-2.4L10 13.8 8.2 12H5.8V9.6L4 8l1.8-1.6V4h2.4Z"/><circle cx="10" cy="8" r="1.7"/></svg>
+              <span class="cert-name">ISO/IEC 27001:2022<span class="cert-sub">Information security</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><path d="M7.6 8.4a2.6 2.6 0 0 1 4.4-1.5M12.4 9.6a2.6 2.6 0 0 1-4.4 1.5"/></svg>
+              <span class="cert-name">ISO 22301:2019<span class="cert-sub">Business continuity</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 2.4h5.2l3 3v12.2H6.4Z"/><path d="M11.6 2.4v3h3"/><path d="M8.2 10.8l1.8 1.8 2.8-3.2"/></svg>
+              <span class="cert-name">SOC 2 Type I &amp; II<span class="cert-sub">Trust services criteria</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8.8" r="5.6"/><path d="M7.4 8.8l1.7 1.7L12.6 7"/><path d="M7 13.8 6.1 18l3.9-2 3.9 2-.9-4.2"/></svg>
+              <span class="cert-name">CERT-In empanelled audit<span class="cert-sub">Delivered with empanelled auditors</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><circle cx="10" cy="8.2" r="1.5"/><path d="M7.3 12.8c.4-1.6 1.8-2.2 2.7-2.2s2.3.6 2.7 2.2"/></svg>
+              <span class="cert-name">DPDP Act, 2023<span class="cert-sub">India data protection</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.4" cy="8.4" r="5.8"/><path d="M2.6 8.4h11.6M8.4 2.6a8.6 8.6 0 0 1 0 11.6 8.6 8.6 0 0 1 0-11.6"/><rect x="12.4" y="11.2" width="4.6" height="3.8" rx="0.8"/><path d="M13.3 11.2v-1.2a1.4 1.4 0 0 1 2.8 0v1.2"/></svg>
+              <span class="cert-name">GDPR<span class="cert-sub">EU data protection</span></span>
+            </span>
+            <span class="cert-chip">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 3.8 4.8v4.5c0 4 2.7 6.2 6.2 7.1 3.5-.9 6.2-3.1 6.2-7.1V4.8Z"/><path d="M7.2 9.6l1.9 1.9 3.7-3.9"/></svg>
+              <span class="cert-name">PCI DSS<span class="cert-sub">Cardholder data security</span></span>
+            </span></span>
+          </div>
+        </div>
+        <p class="legal-updated" style="margin-top:14px;">CERT-In audits are delivered together with a CERT-In empanelled auditing organisation. Certificates and reports are issued by the relevant accredited body, not by DigiCloak.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="band band-line wrap">
+  <div class="metrics">
+    <div class="metric"><div class="fig">3</div><p>Departments staffed in-house, not subcontracted</p></div>
+    <div class="metric"><div class="fig">Pan-India</div><p>Delivery model — remote-first, no geography lock-in</p></div>
+    <div class="metric"><div class="fig">1</div><p>Named owner accountable for your account</p></div>
+    <div class="metric"><div class="fig">&lt;24h</div><p>Reply on WhatsApp, on working days</p></div>
+  </div>
+</section>
+
+<section class="band band-line wrap" id="track-record">
+  <div class="lead">
+    <h2>Where the experience comes from</h2>
+    <p>Field notes from work our team delivered inside a fast-growing fintech SaaS group, before DigiCloak took this on for other businesses.</p>
+  </div>
+  <div class="notes">
+    <article class="note">
+      <span class="note-loc">Multi-entity group</span>
+      <h3>Certification across a group</h3>
+      <p>Led SOC 2, ISO 27001:2022 and ISO 22301:2019 implementation across several group entities at once, working directly with Big 4 auditors through a pre-IPO transition.</p>
+    </article>
+    <article class="note">
+      <span class="note-loc">Regulated financial services group</span>
+      <h3>Continuity under real pressure</h3>
+      <p>Designed and ran a business continuity and disaster recovery framework that kept a regulated operation online with no downtime through a high-pressure period.</p>
+    </article>
+    <article class="note">
+      <span class="note-loc">80+ engineer organisation</span>
+      <h3>Infrastructure that scaled quietly</h3>
+      <p>Directed licensing, platform and infrastructure decisions — including replacing paid SaaS tools with self-hosted alternatives — as engineering grew from early stage to more than 80 developers across global offices.</p>
+    </article>
+  </div>
+</section>
+
+<section class="band band-panel">
+  <div class="wrap">
+    <div class="lead">
+      <h2>How an engagement runs</h2>
+      <p>Whichever department you start with, the shape is the same. One scope, one owner, and a handover that doesn't lose anything between stages.</p>
+    </div>
+    <div class="flow">
+      <div class="stage">
+        <h3>Scope</h3>
+        <p>We walk your estate, licences and controls against what you actually need — a tender requirement, a customer questionnaire, a new office — and tell you what is missing and what it costs.</p>
+      </div>
+      <div class="stage">
+        <h3>Source and build</h3>
+        <p>Hardware and licences are procured and delivered pre-configured. Infrastructure, connectivity and controls go in together rather than in separate projects.</p>
+      </div>
+      <div class="stage">
+        <h3>Test and harden</h3>
+        <p>Our security team tests what was built, fixes what it finds with your engineers, and retests until findings close. Evidence is captured as we go.</p>
+      </div>
+      <div class="stage">
+        <h3>Certify and maintain</h3>
+        <p>We carry you through the audit itself, then hold the certificate through surveillance, renewals and the next refresh cycle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-line wrap" id="coverage">
+  <div class="lead">
+    <h2>How we deliver</h2>
+    <p>One team, working remotely with clients across every state — useful if you're tired of a vendor's "coverage area" deciding whether you get proper service.</p>
+  </div>
+  <div class="geo">
+    <div class="geo-cell">
+      <h3>India</h3>
+      <p>Clients across Tamil Nadu, Bengaluru, Hyderabad, Mumbai, Pune, Delhi NCR and beyond — coordinated remotely, with no branch-office boundaries on who gets proper attention.</p>
+      <ul>
+        <li>CERT-In audits and safe-to-host clearance reports</li>
+        <li>DPDP Act 2023 readiness and data-principal workflows</li>
+        <li>RBI, SEBI and IRDAI-driven security assessments</li>
+        <li>GST-compliant hardware and licence procurement with e-invoicing</li>
+      </ul>
+    </div>
+    <div class="geo-cell">
+      <h3>Remote-first delivery</h3>
+      <p>Scoping calls, security testing, evidence review and audit prep all run over WhatsApp, call and screen-share — no branch office required to get proper attention.</p>
+      <ul>
+        <li>Specialists brought in per engagement, not a single generalist</li>
+        <li>On-site visits coordinated locally only where hardware truly requires it</li>
+        <li>Lower overhead passed on as lower, more predictable pricing</li>
+        <li>One named owner for the account regardless of where you're based</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band-line wrap" id="faq">
+  <div class="lead">
+    <h2>Questions we get before the first call</h2>
+    <p>If yours is not here, message us and ask it directly.</p>
+  </div>
+  <div class="faq">
+    <details>
+      <summary>What is a CERT-In empanelled audit and when does my business need one?</summary>
+      <div class="ans"><p>A CERT-In audit is an independent cyber security assessment carried out by an auditing organisation empanelled by the Indian Computer Emergency Response Team under Section 70B of the IT Act, 2000. Sectoral regulators including the RBI, SEBI, IRDAI and UIDAI require regulated entities to be audited by an empanelled auditor, and many enterprise customers and government tenders ask for the same report before onboarding a vendor. DigiCloak scopes the audit, prepares your systems and evidence, and delivers the engagement together with a CERT-In empanelled auditing organisation.</p></div>
+    </details>
+    <details>
+      <summary>Can DigiCloak supply hardware and secure it under one contract?</summary>
+      <div class="ans"><p>Yes. Procurement, cybersecurity and audit run as three departments inside one company, so the laptops and servers we source arrive already imaged, encrypted, enrolled in endpoint protection and recorded in your asset register. That removes the usual gap between the reseller who sold the machine and the auditor who later asks who owns it.</p></div>
+    </details>
+    <details>
+      <summary>How long does ISO 27001 certification take?</summary>
+      <div class="ans"><p>For most small and mid-sized businesses a first-time ISO/IEC 27001:2022 certification takes roughly three to six months from the initial gap assessment to the certification audit, depending on how much of the information security management system already exists and how quickly evidence can be collected.</p></div>
+    </details>
+    <details>
+      <summary>What is the difference between SOC 2 and ISO 27001?</summary>
+      <div class="ans"><p>ISO/IEC 27001 is an internationally recognised certification against a formal information security management system standard. SOC 2 is an attestation report assessed against the AICPA Trust Services Criteria, and is more commonly requested by US and global SaaS buyers. Many businesses pursue both, and a large share of the underlying controls and documentation overlap.</p></div>
+    </details>
+    <details>
+      <summary>What does a VAPT engagement with DigiCloak cover?</summary>
+      <div class="ans"><p>A VAPT engagement covers vulnerability assessment and manual penetration testing across the assets you put in scope: web applications, mobile applications, APIs, internal and external networks, and cloud environments. You receive a prioritised findings report with reproduction steps and business impact, remediation guidance for your engineering team, and a retest to confirm fixes before a clearance certificate is issued.</p></div>
+    </details>
+    <details>
+      <summary>Do you only work with businesses in Chennai?</summary>
+      <div class="ans"><p>No. DigiCloak is a remote-first team, and the great majority of engagements are scoped, delivered and supported entirely over WhatsApp, call and screen-share with clients across India. Hardware delivery and any on-site visits are coordinated locally through our delivery-partner network, only where a physical presence is genuinely required.</p></div>
+    </details>
+    <details>
+      <summary>Do you manage software licences on an ongoing basis?</summary>
+      <div class="ans"><p>Yes. Beyond initial procurement we manage renewals, seat reconciliation, usage audits and cost optimisation for Google Workspace, Microsoft 365, AWS, Azure and similar platforms, so licence spend stays aligned with actual usage rather than growing quietly year over year.</p></div>
+    </details>
+    <details>
+      <summary>How is DigiCloak able to keep pricing lower than larger vendors?</summary>
+      <div class="ans"><p>Two reasons. We're remote-first, so we're not pricing in a large office footprint. And beyond our core team, we work with a vetted network of specialists — many holding full-time roles inside corporate companies in that exact field — brought in project by project rather than kept on a permanent bench. Quotes are itemised and benchmarked, with no hidden markup, so the price you're quoted is the price you pay.</p></div>
+    </details>
+  </div>
+</section>
+
+<section class="band wrap" id="contact">
+  <div class="cta-box">
+    <div>
+      <h2>Tell us what you need and by when</h2>
+      <p>A tender deadline, an office opening in six weeks, a customer security questionnaire you cannot answer yet. Message us directly — there is no form and no call centre.</p>
+      <p class="cta-note">Delivered remote-first, pan-India. Transparent, itemised quotes — no hidden markup.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn btn-wa btn-lg" href="https://wa.me/919944058249?text=Hi%20DigiCloak%2C%20I%27d%20like%20to%20talk%20about%20procurement%2C%20cybersecurity%20or%20an%20audit." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.43 1.32-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.17s.79-2.25 1.07-2.56c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.27.08.15.13.33.02.53-.1.2-.15.33-.3.5-.15.18-.32.39-.46.53-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.1 1.16 1.03 2.14 1.35 2.45 1.51.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.08.99.31.15.51.23.59.36.08.13.08.74-.17 1.43Z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a class="btn btn-line btn-lg" href="tel:+919944058249">Call +91 99440 58249</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <a class="mark" href="index.html">
+          <img src="logo.png" width="28" height="28" alt="" loading="lazy">
+          DigiCloak
+        </a>
+        <p class="ft-blurb">IT procurement, cybersecurity, and CERT-In empanelled audits and certification for growing businesses — delivered remote-first, across India.</p>
+      </div>
+      <div>
+        <h4>Procurement</h4>
+        <ul>
+          <li><a href="#procurement">Hardware sourcing</a></li>
+          <li><a href="#procurement">Software &amp; cloud licences</a></li>
+          <li><a href="#procurement">Office IT rollouts</a></li>
+          <li><a href="#procurement">AMC &amp; support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cybersecurity</h4>
+        <ul>
+          <li><a href="#cybersecurity">VAPT</a></li>
+          <li><a href="#cybersecurity">Application security</a></li>
+          <li><a href="#cybersecurity">Cloud security</a></li>
+          <li><a href="#cybersecurity">Incident response</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Audits</h4>
+        <ul>
+          <li><a href="#audits">CERT-In audits</a></li>
+          <li><a href="#audits">ISO 27001 &amp; 22301</a></li>
+          <li><a href="#audits">SOC 2</a></li>
+          <li><a href="#audits">DPDP &amp; GDPR</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-base">
+      <span>WhatsApp <a href="https://wa.me/919944058249" target="_blank" rel="noopener">+91 99440 58249</a></span>
+      <span>Remote-first, working across India</span>
+      <span>&copy; 2026 Shine Ventures. All rights reserved.</span>
+    </div>
+    <div class="ft-legal">
+      <span>DigiCloak is a brand operated by Shine Ventures.</span>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <span>Grievance Officer: Rejoy K Roy · <a href="mailto:hello@digicloak.in">hello@digicloak.in</a> · <a href="tel:+919944058249">+91 99440 58249</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<a class="wa-float" href="https://wa.me/919944058249?text=Hi%20DigiCloak%2C%20I%27d%20like%20to%20talk%20about%20procurement%2C%20cybersecurity%20or%20an%20audit." target="_blank" rel="noopener" aria-label="Chat with DigiCloak on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.43 1.32-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.17s.79-2.25 1.07-2.56c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.27.08.15.13.33.02.53-.1.2-.15.33-.3.5-.15.18-.32.39-.46.53-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.1 1.16 1.03 2.14 1.35 2.45 1.51.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.08.99.31.15.51.23.59.36.08.13.08.74-.17 1.43Z"/></svg>
+</a>
+
+<script src="assets/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
